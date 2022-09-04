@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/logo.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Paytone+One&family=Squada+One&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./assets/style/all.css" />
+    <title>篩選</title>
+  </head>
+
+  <body class="bg-gray">
+    <header class="fixed inset-x-0 top-0 z-30 border-b bg-gray py-4 lg:py-0">
+      <div class="container flex items-center justify-between">
+        <a href="index.html">
+          <img
+            src="./assets/images/logo.svg"
+            alt="logo"
+            class="w-[85px] lg:w-[190px]"
+          />
+        </a>
+        <div
+          class="flex items-center justify-end gap-x-6 lg:items-stretch lg:gap-0"
+        >
+          <div
+            id="searchBar"
+            class="hover-500 invisible absolute inset-x-2 z-10 flex items-center bg-gray opacity-0 target:visible target:opacity-100 lg:visible lg:static lg:border-x lg:px-12 lg:py-8 lg:opacity-100"
+          >
+            <a href="#" class="material-icons lg:hidden"> chevron_left </a>
+            <input
+              type="text"
+              class="w-full border-none bg-transparent placeholder:text-sm placeholder:text-gray-200 focus:ring-0 lg:w-72 lg:placeholder:text-base"
+              placeholder="搜尋作品名稱、藝術家名稱"
+            />
+            <a
+              href="#"
+              class="material-icons hover-500 font-bold hover:scale-150"
+            >
+              search
+            </a>
+          </div>
+          <a href="#searchBar" class="material-icons font-bold lg:hidden">
+            search
+          </a>
+          <button id="burger" class="flex items-center lg:hidden">
+            <span
+              class="relative h-1 w-6 bg-black transition-all duration-300 before:absolute before:top-[-8px] before:left-0 before:h-1 before:w-6 before:bg-black before:transition-all before:duration-300 after:absolute after:top-[8px] after:left-0 after:h-1 after:w-6 after:bg-black after:transition-all after:duration-300"
+            ></span>
+          </button>
+          <ul
+            id="menu"
+            class="absolute inset-x-0 top-[101%] hidden bg-white px-3 pb-6 text-center lg:static lg:!flex lg:items-center lg:divide-x lg:divide-black lg:bg-transparent lg:p-0"
+          >
+            <li class="hover-500 hover:bg-gray-100">
+              <a
+                href="explore.html"
+                class="whitespace-nowrap border-b py-6 text-lg font-bold lg:border-b-0 lg:px-12 lg:py-10"
+                >探索</a
+              >
+            </li>
+            <li class="hover-500 hover:bg-gray-100">
+              <a
+                href="ranking.html"
+                class="whitespace-nowrap py-6 text-lg font-bold lg:px-12 lg:py-10"
+                >市值</a
+              >
+            </li>
+            <li class="hover-500 hover:bg-gray-100">
+              <a
+                href="#connectWallet"
+                class="border bg-orange py-3 text-lg text-white lg:border-0 lg:bg-transparent lg:px-12 lg:py-10 lg:text-black"
+              >
+                <span class="lg:hidden">連結錢包</span>
+                <i
+                  class="fa-solid fa-wallet fa-xl before:hidden lg:before:block"
+                ></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    
+<main class="container mt-[81px] pb-12 lg:mt-[148px] lg:pb-20">
+  <section class="lg:flex lg:gap-x-6">
+    <div
+      id="filterModal"
+      class="absolute inset-0 z-30 hidden h-fit divide-y divide-gray-200 border bg-white lg:static lg:z-0 lg:!block lg:w-1/4"
+    >
+      <div
+        class="flex items-center justify-between border-b px-3 py-4 lg:hidden"
+      >
+        <h3 class="flex-grow text-center text-xl">篩選條件</h3>
+        <a href="#" id="filterClose" class="fa-solid fa-xmark text-3xl"></a>
+      </div>
+      <div class="p-6 font-noto lg:!border-t-0">
+        <input type="checkbox" id="web" class="peer contents" />
+        <label
+          for="web"
+          class="mb-4 flex w-full cursor-pointer items-center justify-between font-bold"
+        >
+          網路
+          <i class="fa-solid fa-angle-up"></i>
+        </label>
+        <div
+          class="hover-500 max-h-96 space-y-2 overflow-hidden peer-checked:max-h-0"
+        >
+          <label for="eth" class="flex items-center justify-between">
+            以太坊
+            <input
+              id="eth"
+              class="hover-500 text-transparent checked:text-black focus:ring-transparent"
+              type="checkbox"
+            />
+          </label>
+          <label for="bnb" class="flex items-center justify-between">
+            BNB 智能鏈
+            <input
+              id="bnb"
+              class="hover-500 text-transparent checked:text-black focus:ring-transparent"
+              type="checkbox"
+              checked
+            />
+          </label>
+        </div>
+      </div>
+      <div class="p-6 font-noto">
+        <input type="checkbox" id="status" class="peer contents" />
+        <label
+          for="status"
+          class="mb-4 flex w-full cursor-pointer items-center justify-between font-bold"
+        >
+          狀態
+          <i class="fa-solid fa-angle-up"></i>
+        </label>
+        <div
+          class="hover-500 max-h-96 space-y-2 overflow-hidden peer-checked:max-h-0"
+        >
+          <label for="exhibit" class="flex items-center justify-between">
+            僅展示
+            <input
+              id="exhibit"
+              class="hover-500 text-transparent checked:text-black focus:ring-transparent"
+              type="checkbox"
+            />
+          </label>
+          <label for="auction" class="flex items-center justify-between">
+            拍賣中
+            <input
+              id="auction"
+              class="hover-500 text-transparent checked:text-black focus:ring-transparent"
+              type="checkbox"
+              checked
+            />
+          </label>
+        </div>
+      </div>
+      <div class="p-6 font-noto">
+        <input type="checkbox" id="price" class="peer contents" />
+        <label
+          for="price"
+          class="mb-4 flex w-full cursor-pointer items-center justify-between font-bold"
+        >
+          價格
+          <i class="fa-solid fa-angle-up"></i>
+        </label>
+        <div
+          class="hover-500 flex max-h-96 items-center gap-2 overflow-hidden peer-checked:max-h-0"
+        >
+          <select
+            class="bg-[url(../images/sort-up.svg)] bg-[length:8px] bg-[right_8px_center] pl-2 pr-8 focus:border-black focus:ring-transparent"
+          >
+            <option value="ETH" selected>ETH</option>
+            <option value="BTC">BTC</option>
+            <option value="BNB">BNB</option>
+          </select>
+          <input
+            type="text"
+            class="w-1/3 focus:border-black focus:ring-transparent"
+          />
+          <span>－</span>
+          <input
+            type="text"
+            class="w-1/3 focus:border-black focus:ring-transparent"
+          />
+        </div>
+      </div>
+      <div class="space-y-6 p-6 font-noto">
+        <div>
+          <p class="mb-6 font-bold text-gray-200">屬性</p>
+          <input type="checkbox" id="variety" class="peer contents" />
+          <label
+            for="variety"
+            class="mb-4 flex w-full cursor-pointer items-center justify-between font-bold"
+          >
+            品種
+            <i class="fa-solid fa-angle-up"></i>
+          </label>
+          <div
+            class="hover-500 max-h-96 space-y-2 overflow-hidden peer-checked:max-h-0"
+          >
+            <label for="starling" class="flex items-center justify-between">
+              八哥
+              <input
+                id="starling"
+                class="hover-500 text-transparent checked:text-black focus:ring-transparent"
+                type="checkbox"
+              />
+            </label>
+            <label for="budgerigar" class="flex items-center justify-between">
+              虎皮鸚鵡
+              <input
+                id="budgerigar"
+                class="hover-500 text-transparent checked:text-black focus:ring-transparent"
+                type="checkbox"
+                checked
+              />
+            </label>
+            <label for="peacebird" class="flex items-center justify-between">
+              太平鳥
+              <input
+                id="peacebird"
+                class="hover-500 text-transparent checked:text-black focus:ring-transparent"
+                type="checkbox"
+              />
+            </label>
+            <label for="thrush" class="flex items-center justify-between">
+              畫眉鳥
+              <input
+                id="thrush"
+                class="hover-500 text-transparent checked:text-black focus:ring-transparent"
+                type="checkbox"
+              />
+            </label>
+          </div>
+        </div>
+        <div>
+          <input type="checkbox" id="birdNum" class="peer contents" />
+          <label
+            for="birdNum"
+            class="mb-4 flex w-full cursor-pointer items-center justify-between font-bold"
+          >
+            鳥的數量
+            <i class="fa-solid fa-angle-up -scale-y-100"></i>
+          </label>
+          <div
+            class="hover-500 max-h-0 space-y-2 overflow-hidden peer-checked:max-h-96"
+          >
+            <label for="birdTwo" class="flex items-center justify-between">
+              2
+              <input
+                id="birdTwo"
+                class="hover-500 text-transparent checked:text-black focus:ring-transparent"
+                type="checkbox"
+              />
+            </label>
+            <label for="birdFour" class="flex items-center justify-between">
+              4
+              <input
+                id="birdFour"
+                class="hover-500 text-transparent checked:text-black focus:ring-transparent"
+                type="checkbox"
+                checked
+              />
+            </label>
+          </div>
+        </div>
+        <div>
+          <input type="checkbox" id="checkFlower" class="peer contents" />
+          <label
+            for="checkFlower"
+            class="mb-4 flex w-full cursor-pointer items-center justify-between font-bold"
+          >
+            是否有花草
+            <i class="fa-solid fa-angle-up -scale-y-100"></i>
+          </label>
+          <div
+            class="hover-500 max-h-0 space-y-2 overflow-hidden peer-checked:max-h-96"
+          >
+            <label for="yes" class="flex items-center justify-between">
+              有
+              <input
+                id="yes"
+                class="hover-500 text-transparent checked:text-black focus:ring-transparent"
+                type="radio"
+                name="flower"
+              />
+            </label>
+            <label for="no" class="flex items-center justify-between">
+              沒有
+              <input
+                id="no"
+                class="hover-500 text-transparent checked:text-black focus:ring-transparent"
+                type="radio"
+                name="flower"
+              />
+            </label>
+          </div>
+        </div>
+        <div>
+          <input type="checkbox" id="birdColor" class="peer contents" />
+          <label
+            for="birdColor"
+            class="mb-4 flex w-full cursor-pointer items-center justify-between font-bold"
+          >
+            鳥的顏色
+            <i class="fa-solid fa-angle-up -scale-y-100"></i>
+          </label>
+          <div
+            class="hover-500 max-h-0 space-y-2 overflow-hidden peer-checked:max-h-96"
+          >
+            <label for="green" class="flex items-center justify-between">
+              綠色
+              <input
+                id="green"
+                class="hover-500 text-transparent checked:text-black focus:ring-transparent"
+                type="checkbox"
+              />
+            </label>
+            <label for="blue" class="flex items-center justify-between">
+              藍色
+              <input
+                id="blue"
+                class="hover-500 text-transparent checked:text-black focus:ring-transparent"
+                type="checkbox"
+              />
+            </label>
+          </div>
+        </div>
+      </div>
+      <a
+        href="#"
+        class="bg-orange px-6 py-3 text-center text-lg text-white lg:hidden"
+        >確認</a
+      >
+    </div>
+    <div id="filterList" class="lg:!block lg:w-3/4">
+      <div class="mb-1 flex items-center">
+        <img
+          src="./assets/images/artist01.jpg"
+          alt="user"
+          class="mr-4 h-8 w-8 rounded-full"
+        />
+        <h2>Michael</h2>
+      </div>
+      <div class="mb-10 lg:flex lg:items-center lg:gap-6">
+        <div class="lg:w-3/5">
+          <h1 class="mb-2 text-3xl font-bold">我家外面的鳥</h1>
+          <p class="mb-4 lg:mb-0">
+            家門前每天都有不同的小鳥，大多數的小鳥都有特殊能力，特殊能力是什麼我就不說了，希望大家能從作品感受到小鳥的快樂。
+          </p>
+        </div>
+        <ul
+          class="grid grid-cols-4 divide-x border bg-white text-center lg:w-2/5"
+        >
+          <li class="px-2 py-4">
+            <p class="text-sm lg:text-base">項目</p>
+            <span class="text-xl lg:text-2xl">6.4 k</span>
+          </li>
+          <li
+            class="relative px-2 py-4 before:absolute before:-left-[1px] before:top-5 before:bottom-5 before:z-10 before:border-l before:border-white"
+          >
+            <p class="text-sm lg:text-base">擁有者</p>
+            <span class="text-xl lg:text-2xl">2.5 k</span>
+          </li>
+          <li
+            class="relative px-2 py-4 before:absolute before:-left-[1px] before:top-5 before:bottom-5 before:z-10 before:border-l before:border-white"
+          >
+            <p class="text-sm lg:text-base">底價</p>
+            <span class="text-xl lg:text-2xl"
+              ><i class="fa-brands fa-ethereum mr-2 text-base"></i>1.38 k</span
+            >
+          </li>
+          <li
+            class="relative px-2 py-4 before:absolute before:-left-[1px] before:top-5 before:bottom-5 before:z-10 before:border-l before:border-white"
+          >
+            <p class="text-sm lg:text-base">總額</p>
+            <span class="text-xl lg:text-2xl">2.8 k</span>
+          </li>
+        </ul>
+      </div>
+      <select
+        class="ml-auto mb-6 block w-[156px] bg-[url('../images/sort.svg')] bg-[length:8px] bg-[right_36px_center] pr-8 text-center focus:border-black focus:ring-transparent lg:mb-10"
+      >
+        <option value="最新上架">最新上架</option>
+        <option value="最高人氣">最高人氣</option>
+      </select>
+      <ul class="grid-fail">
+        <li class="grid-item lg:grid-item-1/3 mb-4 lg:mb-12">
+          <div class="lg:relative">
+            <a href="introduce.html"
+              ><img
+                src="./assets/images/bird03.jpg"
+                alt="work"
+                class="h-[155px] w-full bg-white object-cover p-2 lg:mb-4 lg:h-[302px] lg:p-6"
+            /></a>
+            <div
+              class="hover-500 hidden p-4 opacity-0 hover:bg-black/70 hover:opacity-100 lg:absolute lg:inset-6 lg:block lg:text-white"
+            >
+              <div class="flex h-full flex-col border border-white p-4">
+                <p class="mb-2">這兩隻也太像企鵝了吧</p>
+                <p>
+                  <i class="fa-brands fa-ethereum mr-2"></i>
+                  300
+                </p>
+                <a
+                  href="introduce.html"
+                  class="btn-more ml-auto bg-white text-black lg:mt-auto"
+                  >MORE</a
+                >
+              </div>
+            </div>
+          </div>
+          <h3 class="m-2 text-sm lg:border-b lg:pb-4 lg:text-base lg:font-bold">
+            這兩隻也太像企鵝了吧
+          </h3>
+        </li>
+        <li class="grid-item lg:grid-item-1/3 mb-4 lg:mb-12">
+          <div class="lg:relative">
+            <a href="introduce.html"
+              ><img
+                src="./assets/images/bird01.jpg"
+                alt="work"
+                class="h-[167px] w-full bg-white object-cover p-2 lg:mb-4 lg:h-[375px] lg:p-6"
+            /></a>
+            <div
+              class="hover-500 hidden p-4 opacity-0 hover:bg-black/70 hover:opacity-100 lg:absolute lg:inset-6 lg:block lg:text-white"
+            >
+              <div class="flex h-full flex-col border border-white p-4">
+                <p class="mb-2">3/14 情人節外面剛好有兩隻鳥，也在過情人節。</p>
+                <p>
+                  <i class="fa-brands fa-ethereum mr-2"></i>
+                  300
+                </p>
+                <a
+                  href="introduce.html"
+                  class="btn-more ml-auto bg-white text-black lg:mt-auto"
+                  >MORE</a
+                >
+              </div>
+            </div>
+          </div>
+          <h3 class="m-2 text-sm lg:border-b lg:pb-4 lg:text-base lg:font-bold">
+            兩情相悅
+          </h3>
+        </li>
+        <li class="grid-item lg:grid-item-1/3 mb-4 lg:mb-12">
+          <div class="lg:relative">
+            <img
+              src="./assets/images/bird05.jpg"
+              alt="work"
+              class="h-[109px] w-full bg-white object-cover p-2 lg:mb-4 lg:h-[302px] lg:p-6"
+            />
+            <div
+              class="hover-500 hidden p-4 opacity-0 hover:bg-black/70 hover:opacity-100 lg:absolute lg:inset-6 lg:block lg:text-white"
+            >
+              <div class="flex h-full flex-col border border-white p-4">
+                <p class="mb-2">群聚的小鳥們</p>
+                <p>
+                  <i class="fa-brands fa-ethereum mr-2"></i>
+                  300
+                </p>
+                <a
+                  href="#"
+                  class="btn-more ml-auto bg-white text-black lg:mt-auto"
+                  >MORE</a
+                >
+              </div>
+            </div>
+          </div>
+          <h3 class="m-2 text-sm lg:border-b lg:pb-4 lg:text-base lg:font-bold">
+            群聚的小鳥們
+          </h3>
+        </li>
+        <li class="grid-item lg:grid-item-1/3 mb-4 lg:mb-12">
+          <div class="lg:relative">
+            <img
+              src="./assets/images/bird06.jpg"
+              alt="work"
+              class="h-[189px] w-full bg-white object-cover p-2 lg:mb-4 lg:h-[302px] lg:p-6"
+            />
+            <div
+              class="hover-500 hidden p-4 opacity-0 hover:bg-black/70 hover:opacity-100 lg:absolute lg:inset-6 lg:block lg:text-white"
+            >
+              <div class="flex h-full flex-col border border-white p-4">
+                <p class="mb-2">與你分享的快樂勝過獨自擁有</p>
+                <p>
+                  <i class="fa-brands fa-ethereum mr-2"></i>
+                  300
+                </p>
+                <a
+                  href="#"
+                  class="btn-more ml-auto bg-white text-black lg:mt-auto"
+                  >MORE</a
+                >
+              </div>
+            </div>
+          </div>
+          <h3 class="m-2 text-sm lg:border-b lg:pb-4 lg:text-base lg:font-bold">
+            與你分享的快樂勝過獨自擁有
+          </h3>
+        </li>
+        <li class="grid-item lg:grid-item-1/3 mb-4 lg:mb-0">
+          <div class="lg:relative">
+            <img
+              src="./assets/images/bird07.jpg"
+              alt="work"
+              class="h-[208px] w-full bg-white object-cover p-2 lg:mb-4 lg:h-[416px] lg:p-6"
+            />
+            <div
+              class="hover-500 hidden p-4 opacity-0 hover:bg-black/70 hover:opacity-100 lg:absolute lg:inset-6 lg:block lg:text-white"
+            >
+              <div class="flex h-full flex-col border border-white p-4">
+                <p class="mb-2">會唱metal的鳥</p>
+                <p>
+                  <i class="fa-brands fa-ethereum mr-2"></i>
+                  300
+                </p>
+                <a
+                  href="#"
+                  class="btn-more ml-auto bg-white text-black lg:mt-auto"
+                  >MORE</a
+                >
+              </div>
+            </div>
+          </div>
+          <h3 class="m-2 text-sm lg:border-b lg:pb-4 lg:text-base lg:font-bold">
+            會唱metal的鳥
+          </h3>
+        </li>
+        <li class="grid-item lg:grid-item-1/3 mb-4 lg:mb-0">
+          <div class="lg:relative">
+            <img
+              src="./assets/images/bird08.jpg"
+              alt="work"
+              class="h-[115px] w-full bg-white object-cover p-2 lg:mb-4 lg:h-[443px] lg:p-6"
+            />
+            <div
+              class="hover-500 hidden p-4 opacity-0 hover:bg-black/70 hover:opacity-100 lg:absolute lg:inset-6 lg:block lg:text-white"
+            >
+              <div class="flex h-full flex-col border border-white p-4">
+                <p class="mb-2">一大一小兩個恰恰好</p>
+                <p>
+                  <i class="fa-brands fa-ethereum mr-2"></i>
+                  300
+                </p>
+                <a
+                  href="#"
+                  class="btn-more ml-auto bg-white text-black lg:mt-auto"
+                  >MORE</a
+                >
+              </div>
+            </div>
+          </div>
+          <h3 class="m-2 text-sm lg:border-b lg:pb-4 lg:text-base lg:font-bold">
+            一大一小兩個恰恰好
+          </h3>
+        </li>
+        <li class="grid-item lg:hidden">
+          <div class="lg:relative">
+            <img
+              src="./assets/images/bird02.jpg"
+              alt="work"
+              class="h-[201px] w-full bg-white object-cover p-2 lg:mb-4 lg:h-[443px] lg:p-6"
+            />
+            <div
+              class="hover-500 hidden p-4 opacity-0 hover:bg-black/70 hover:opacity-100 lg:absolute lg:inset-6 lg:block lg:text-white"
+            >
+              <div class="flex h-full flex-col border border-white p-4">
+                <p class="mb-2">這兩隻也太像企鵝了吧</p>
+                <p>
+                  <i class="fa-brands fa-ethereum mr-2"></i>
+                  300
+                </p>
+                <a
+                  href="#"
+                  class="btn-more ml-auto bg-white text-black lg:mt-auto"
+                  >MORE</a
+                >
+              </div>
+            </div>
+          </div>
+          <h3 class="m-2 text-sm lg:border-b lg:pb-4 lg:text-base lg:font-bold">
+            這兩隻也太像企鵝了吧
+          </h3>
+        </li>
+        <li class="grid-item lg:hidden">
+          <div class="lg:relative">
+            <img
+              src="./assets/images/bird03.jpg"
+              alt="work"
+              class="h-[155px] w-full bg-white object-cover p-2 lg:mb-4 lg:h-[302px] lg:p-6"
+            />
+            <div
+              class="hover-500 hidden p-4 opacity-0 hover:bg-black/70 hover:opacity-100 lg:absolute lg:inset-6 lg:block lg:text-white"
+            >
+              <div class="flex h-full flex-col border border-white p-4">
+                <p class="mb-2">唯一想擁有的人，唯一不可以擁有的</p>
+                <p>
+                  <i class="fa-brands fa-ethereum mr-2"></i>
+                  300
+                </p>
+                <a
+                  href="#"
+                  class="btn-more ml-auto bg-white text-black lg:mt-auto"
+                  >MORE</a
+                >
+              </div>
+            </div>
+          </div>
+          <h3 class="m-2 text-sm lg:border-b lg:pb-4 lg:text-base lg:font-bold">
+            唯一想擁有的人，唯一不可以擁有的
+          </h3>
+        </li>
+      </ul>
+    </div>
+    <a
+      href="#"
+      id="filterOpen"
+      class="fixed left-1/2 bottom-5 z-10 -translate-x-1/2 border bg-black px-12 py-2 text-white lg:hidden"
+      >篩選條件 2</a
+    >
+  </section>
+</main>
+
+
+    <footer
+      class="relative border-t-4 py-6 text-center before:absolute before:inset-x-0 before:-top-2.5 before:border-t"
+    >
+      <h5 class="font-noto">© ART NFT. All Rights Reserved</h5>
+    </footer>
+    <div
+      id="connectWallet"
+      class="hover-500 invisible fixed inset-0 z-40 opacity-0 target:visible target:opacity-100 lg:flex lg:items-center lg:justify-center lg:bg-black/60"
+    >
+      <div class="h-full bg-white lg:h-auto lg:w-[498px]">
+        <div class="border-b px-3 py-4">
+          <h3 class="text-center text-xl">連結你的錢包</h3>
+          <a
+            href="#"
+            class="fa-solid fa-xmark absolute top-5 right-6 text-xl lg:!hidden"
+          ></a>
+        </div>
+        <ul
+          class="container space-y-2 p-6 lg:grid lg:grid-cols-2 lg:gap-2 lg:space-y-0"
+        >
+          <li class="relative">
+            <input
+              id="MetaMask"
+              type="radio"
+              name="wallet"
+              class="peer contents"
+            />
+            <label
+              for="MetaMask"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect01.png"
+                alt="MetaMask"
+                class="h-4 w-4"
+              />
+              <h4>MetaMask</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+          <li class="relative">
+            <input
+              id="Coinbase"
+              type="radio"
+              name="wallet"
+              class="peer contents"
+            />
+            <label
+              for="Coinbase"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect02.png"
+                alt="Coinbase Wallet"
+                class="h-4 w-4"
+              />
+              <h4>Coinbase Wallet</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+          <li class="relative">
+            <input
+              id="WalletConnect"
+              type="radio"
+              name="wallet"
+              class="peer contents"
+            />
+            <label
+              for="WalletConnect"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect03.png"
+                alt="WalletConnect"
+                class="h-4 w-4"
+              />
+              <h4>WalletConnect</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+          <li class="relative">
+            <input
+              id="Phantom"
+              type="radio"
+              name="wallet"
+              class="peer contents"
+            />
+            <label
+              for="Phantom"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect04.png"
+                alt="Phantom"
+                class="h-4 w-4"
+              />
+              <h4>Phantom</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+          <li class="relative">
+            <input id="Glow" type="radio" name="wallet" class="peer contents" />
+            <label
+              for="Glow"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect05.png"
+                alt="Glow"
+                class="h-4 w-4"
+              />
+              <h4>Glow</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+          <li class="relative">
+            <input
+              id="Fortmatic"
+              type="radio"
+              name="wallet"
+              class="peer contents"
+            />
+            <label
+              for="Fortmatic"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect06.png"
+                alt="Fortmatic"
+                class="h-4 w-4"
+              />
+              <h4>Fortmatic</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+        </ul>
+        <a
+          href="#"
+          class="absolute inset-x-0 bottom-0 border bg-orange p-3 text-center text-white lg:static lg:mx-auto lg:mb-6 lg:w-fit lg:px-12"
+          >連結錢包</a
+        >
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/a6505b48a1.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="./assets/js/vendors.js"></script>
+    <script src="./assets/js/all.js"></script>
+  </body>
+</html>

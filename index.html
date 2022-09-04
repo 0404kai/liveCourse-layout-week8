@@ -1,27 +1,1009 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/logo.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Paytone+One&family=Squada+One&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./assets/style/all.css" />
+    <title>首頁</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>首頁</title>
-  <link rel="stylesheet" href="./assets/style/all.css">
-</head>
+  <body class="bg-gray">
+    <header class="fixed inset-x-0 top-0 z-30 border-b bg-gray py-4 lg:py-0">
+      <div class="container flex items-center justify-between">
+        <a href="index.html">
+          <img
+            src="./assets/images/logo.svg"
+            alt="logo"
+            class="w-[85px] lg:w-[190px]"
+          />
+        </a>
+        <div
+          class="flex items-center justify-end gap-x-6 lg:items-stretch lg:gap-0"
+        >
+          <div
+            id="searchBar"
+            class="hover-500 invisible absolute inset-x-2 z-10 flex items-center bg-gray opacity-0 target:visible target:opacity-100 lg:visible lg:static lg:border-x lg:px-12 lg:py-8 lg:opacity-100"
+          >
+            <a href="#" class="material-icons lg:hidden"> chevron_left </a>
+            <input
+              type="text"
+              class="w-full border-none bg-transparent placeholder:text-sm placeholder:text-gray-200 focus:ring-0 lg:w-72 lg:placeholder:text-base"
+              placeholder="搜尋作品名稱、藝術家名稱"
+            />
+            <a
+              href="#"
+              class="material-icons hover-500 font-bold hover:scale-150"
+            >
+              search
+            </a>
+          </div>
+          <a href="#searchBar" class="material-icons font-bold lg:hidden">
+            search
+          </a>
+          <button id="burger" class="flex items-center lg:hidden">
+            <span
+              class="relative h-1 w-6 bg-black transition-all duration-300 before:absolute before:top-[-8px] before:left-0 before:h-1 before:w-6 before:bg-black before:transition-all before:duration-300 after:absolute after:top-[8px] after:left-0 after:h-1 after:w-6 after:bg-black after:transition-all after:duration-300"
+            ></span>
+          </button>
+          <ul
+            id="menu"
+            class="absolute inset-x-0 top-[101%] hidden bg-white px-3 pb-6 text-center lg:static lg:!flex lg:items-center lg:divide-x lg:divide-black lg:bg-transparent lg:p-0"
+          >
+            <li class="hover-500 hover:bg-gray-100">
+              <a
+                href="explore.html"
+                class="whitespace-nowrap border-b py-6 text-lg font-bold lg:border-b-0 lg:px-12 lg:py-10"
+                >探索</a
+              >
+            </li>
+            <li class="hover-500 hover:bg-gray-100">
+              <a
+                href="ranking.html"
+                class="whitespace-nowrap py-6 text-lg font-bold lg:px-12 lg:py-10"
+                >市值</a
+              >
+            </li>
+            <li class="hover-500 hover:bg-gray-100">
+              <a
+                href="#connectWallet"
+                class="border bg-orange py-3 text-lg text-white lg:border-0 lg:bg-transparent lg:px-12 lg:py-10 lg:text-black"
+              >
+                <span class="lg:hidden">連結錢包</span>
+                <i
+                  class="fa-solid fa-wallet fa-xl before:hidden lg:before:block"
+                ></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
 
-<body>
-  <header class="header">
-    這是 header
-  </header>
+    
+<main class="mt-[57px] lg:mt-[148px]">
+  <ul
+    class="mb-10 divide-y-2 border-b-2 bg-white lg:container lg:mb-20 lg:grid lg:grid-cols-2 lg:divide-y-0 lg:border lg:px-0"
+  >
+    <li class="lg:col-span-full lg:grid lg:grid-cols-12 lg:border-b">
+      <h2
+        class="hidden lg:col-span-1 lg:flex lg:items-center lg:gap-4 lg:bg-black lg:py-6 lg:text-5xl lg:text-white lg:writing-mode-vertical"
+      >
+        Recommend
+        <span class="lg:mr-2 lg:text-xl lg:font-bold">推 薦 系 列</span>
+      </h2>
+      <img src="./assets/images/art01.jpg" alt="work" class="lg:col-span-7" />
+      <div class="flex flex-col px-3 py-8 lg:col-span-4 lg:px-6 lg:pt-20">
+        <h3 class="mb-2 text-lg">Kemus Wu</h3>
+        <h1 class="mb-6 text-2xl font-bold lg:text-5xl">瞳孔:流動的脈絡</h1>
+        <p class="mb-6 tracking-wide lg:tracking-normal">
+          眼睛，總是吸引著我們的注意力，看、被看，也許眼睛裡有著從另一個世界看我們的世界。
+        </p>
+        <a href="work.html" class="btn-more ml-auto lg:mt-auto">MORE</a>
+      </div>
+    </li>
+    <li class="lg:flex lg:flex-row-reverse lg:border-r lg:border-r-black">
+      <img
+        src="./assets/images/art02.jpg"
+        alt="work"
+        class="lg:h-[340px] lg:w-1/2"
+      />
+      <div class="flex flex-col px-3 py-8 lg:w-1/2 lg:p-6 lg:pt-12">
+        <h3 class="mb-2 text-lg">Joanne</h3>
+        <h2 class="mb-6 text-2xl font-bold lg:text-3xl">海洋波度</h2>
+        <p class="mb-6 tracking-[0.01em]">
+          海洋的奧秘向我們揭示了深不可測的一面，它的深度——反映了我們的恐懼、同時也吸引著我們。
+        </p>
+        <a href="#" class="btn-more ml-auto lg:mt-auto">MORE</a>
+      </div>
+    </li>
+    <li class="lg:flex lg:flex-row-reverse">
+      <img
+        src="./assets/images/bird01.jpg"
+        alt="work"
+        class="lg:h-[340px] lg:w-1/2"
+      />
+      <div class="flex flex-col px-3 py-8 lg:w-1/2 lg:p-6 lg:pt-12">
+        <h3 class="mb-2 text-lg">Michael</h3>
+        <h2 class="mb-6 text-2xl font-bold lg:text-3xl">我家窗前的鳥</h2>
+        <p class="mb-6 tracking-wide">
+          家門前每天都有不同的小鳥，大多數的小鳥都有特殊能力，特殊能力是什麼我就不說了，希望大家能從作品感受到小鳥的快樂。
+        </p>
+        <a href="#" class="btn-more ml-auto lg:mt-auto">MORE</a>
+      </div>
+    </li>
+  </ul>
+  <section class="container mb-10 lg:mb-20">
+    <div class="mb-6 flex items-end justify-between border-b lg:mb-12">
+      <h2 class="text-3xl lg:text-6xl">
+        Ranking<span
+          class="hidden lg:ml-4 lg:inline-block lg:text-xl lg:font-bold"
+          >市價排行榜</span
+        >
+      </h2>
+      <a
+        href="#"
+        class="btn-more border-b-0 border-transparent hover:border-black"
+        >MORE</a
+      >
+    </div>
+    <ol class="space-y-4 lg:grid lg:grid-cols-3 lg:gap-6 lg:space-y-0">
+      <li
+        class="flex items-center divide-x border bg-white lg:relative lg:block lg:divide-x-0"
+      >
+        <p
+          class="w-[10%] text-center font-paytone text-2xl lg:absolute lg:left-0 lg:top-0 lg:z-10 lg:w-16 lg:border-r lg:border-b lg:bg-white lg:p-2 lg:text-3xl"
+        >
+          1
+        </p>
+        <div class="group relative">
+          <img
+            src="./assets/images/art04.jpg"
+            alt="work"
+            class="hover-500 h-[91px] w-[87px] object-cover group-hover:brightness-50 lg:h-[374px] lg:w-full lg:object-top"
+          />
+          <a
+            href="#"
+            class="lg:btn-more hidden group-hover:block lg:absolute lg:right-0 lg:bottom-0 lg:z-10"
+            >MORE</a
+          >
+        </div>
+        <div class="grow lg:border-t">
+          <h3 class="border-b px-2 py-4 text-lg font-bold lg:px-4">
+            散步遇到的女人
+          </h3>
+          <div class="flex justify-between p-2 pb-1.5 lg:px-4">
+            <p class="leading-none">Zoe Jiang</p>
+            <p class="leading-none">
+              <i class="fa-brands fa-ethereum mr-2"></i>300
+            </p>
+          </div>
+        </div>
+      </li>
+      <li
+        class="flex items-center divide-x border bg-white lg:relative lg:block lg:divide-x-0"
+      >
+        <p
+          class="w-[10%] text-center font-paytone text-2xl lg:absolute lg:left-0 lg:top-0 lg:z-10 lg:w-16 lg:border-r lg:border-b lg:bg-white lg:p-2 lg:text-3xl"
+        >
+          2
+        </p>
+        <div class="group relative">
+          <img
+            src="./assets/images/art05.jpg"
+            alt="work"
+            class="hover-500 h-[91px] w-[87px] object-cover group-hover:brightness-50 lg:h-[374px] lg:w-full lg:object-top"
+          />
+          <a
+            href="#"
+            class="lg:btn-more hidden group-hover:block lg:absolute lg:right-0 lg:bottom-0 lg:z-10"
+            >MORE</a
+          >
+        </div>
+        <div class="grow lg:border-t">
+          <h3 class="border-b px-2 py-4 text-lg font-bold lg:px-4">
+            爆炸頭的母親
+          </h3>
+          <div class="flex justify-between p-2 pb-1.5 lg:px-4">
+            <p class="leading-none">Yui</p>
+            <p class="leading-none">
+              <i class="fa-brands fa-ethereum mr-2"></i>300
+            </p>
+          </div>
+        </div>
+      </li>
+      <li
+        class="flex items-center divide-x border bg-white lg:relative lg:block lg:divide-x-0"
+      >
+        <p
+          class="w-[10%] text-center font-paytone text-2xl lg:absolute lg:left-0 lg:top-0 lg:z-10 lg:w-16 lg:border-r lg:border-b lg:bg-white lg:p-2 lg:text-3xl"
+        >
+          3
+        </p>
+        <div class="group relative">
+          <img
+            src="./assets/images/art06.jpg"
+            alt="work"
+            class="hover-500 h-[91px] w-[87px] object-cover group-hover:brightness-50 lg:h-[374px] lg:w-full"
+          />
+          <a
+            href="#"
+            class="lg:btn-more hidden group-hover:block lg:absolute lg:right-0 lg:bottom-0 lg:z-10"
+            >MORE</a
+          >
+        </div>
+        <div class="grow lg:border-t">
+          <h3 class="border-b px-2 py-4 text-lg font-bold lg:px-4">
+            夏天的時候
+          </h3>
+          <div class="flex justify-between p-2 pb-1.5 lg:px-4">
+            <p class="leading-none">Bug Lin</p>
+            <p class="leading-none">
+              <i class="fa-brands fa-ethereum mr-2"></i>300
+            </p>
+          </div>
+        </div>
+      </li>
+      <li class="group flex items-center divide-x border bg-white">
+        <p class="w-[10%] text-center font-paytone text-2xl">4</p>
+        <a
+          href="#"
+          class="before:hover-500 after:hover-500 relative before:absolute before:top-1/2 before:left-1/2 before:z-10 before:-translate-x-1/2 before:-translate-y-1/2 before:text-lg before:text-white before:opacity-0 before:content-['MORE'] after:absolute after:right-0 after:bottom-0 after:border-b-16 after:border-l-16 after:border-transparent after:border-b-orange after:opacity-0 group-hover:before:opacity-100 group-hover:after:opacity-100"
+        >
+          <img
+            src="./assets/images/demo4.jpg"
+            alt="work"
+            class="hover-500 h-[91px] w-[87px] group-hover:brightness-[0.3]"
+          />
+        </a>
+        <div class="grow">
+          <h3 class="border-b px-2 py-4 text-lg font-bold">追求者送我的花</h3>
+          <div class="flex justify-between p-2 pb-1.5">
+            <p class="leading-none">Michael</p>
+            <p class="leading-none">
+              <i class="fa-brands fa-ethereum mr-2"></i>300
+            </p>
+          </div>
+        </div>
+      </li>
+      <li class="group flex items-center divide-x border bg-white">
+        <p class="w-[10%] text-center font-paytone text-2xl">5</p>
+        <a
+          href="#"
+          class="before:hover-500 after:hover-500 relative before:absolute before:top-1/2 before:left-1/2 before:z-10 before:-translate-x-1/2 before:-translate-y-1/2 before:text-lg before:text-white before:opacity-0 before:content-['MORE'] after:absolute after:right-0 after:bottom-0 after:border-b-16 after:border-l-16 after:border-transparent after:border-b-orange after:opacity-0 group-hover:before:opacity-100 group-hover:after:opacity-100"
+        >
+          <img
+            src="./assets/images/art07.jpg"
+            alt="work"
+            class="hover-500 h-[91px] w-[87px] object-cover group-hover:brightness-[0.3]"
+          />
+        </a>
+        <div class="grow">
+          <h3 class="border-b px-2 py-4 text-lg font-bold">今天釣到的魚</h3>
+          <div class="flex justify-between p-2 pb-1.5">
+            <p class="leading-none">Wei JJ</p>
+            <p class="leading-none">
+              <i class="fa-brands fa-ethereum mr-2"></i>300
+            </p>
+          </div>
+        </div>
+      </li>
+      <li class="group flex items-center divide-x border bg-white">
+        <p class="w-[10%] text-center font-paytone text-2xl">4</p>
+        <a
+          href="#"
+          class="before:hover-500 after:hover-500 relative before:absolute before:top-1/2 before:left-1/2 before:z-10 before:-translate-x-1/2 before:-translate-y-1/2 before:text-lg before:text-white before:opacity-0 before:content-['MORE'] after:absolute after:right-0 after:bottom-0 after:border-b-16 after:border-l-16 after:border-transparent after:border-b-orange after:opacity-0 group-hover:before:opacity-100 group-hover:after:opacity-100"
+        >
+          <img
+            src="./assets/images/art08.jpg"
+            alt="work"
+            class="hover-500 h-[91px] w-[87px] object-cover group-hover:brightness-[0.3]"
+          />
+        </a>
+        <div class="grow">
+          <h3 class="border-b px-2 py-4 text-lg font-bold">人生中的貓咪們</h3>
+          <div class="flex justify-between p-2 pb-1.5">
+            <p class="leading-none">Even Lai</p>
+            <p class="leading-none">
+              <i class="fa-brands fa-ethereum mr-2"></i>300
+            </p>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </section>
+  <section class="container mb-10 lg:mb-32">
+    <div class="mb-6 flex items-end justify-between border-b lg:mb-12">
+      <h2 class="text-3xl lg:text-6xl">
+        Artist<span
+          class="hidden lg:ml-4 lg:inline-block lg:text-xl lg:font-bold"
+          >熱門藝術家</span
+        >
+      </h2>
+      <a
+        href="#"
+        class="btn-more border-b-0 border-transparent hover:border-black"
+        >MORE</a
+      >
+    </div>
+    <div class="swiper PC hidden lg:mb-8 lg:block">
+      <ul class="swiper-wrapper lg:items-center">
+        <li class="swiper-slide">
+          <div class="relative mb-4 lg:mb-0">
+            <img
+              src="./assets/images/artist01.jpg"
+              alt="work"
+              class="h-[232px] w-full object-cover"
+            />
+            <h3
+              class="absolute left-6 top-6 text-3xl text-white lg:text-6xl lg:leading-none"
+            >
+              Michael
+            </h3>
+            <a
+              href="#"
+              class="btn-more absolute right-2 bottom-2 bg-white lg:right-6 lg:bottom-6"
+              >MORE</a
+            >
+          </div>
+          <p
+            class="bg-white p-6 lg:absolute lg:left-6 lg:bottom-6 lg:w-1/2 lg:bg-white/80"
+          >
+            ​喜愛大自然，創作題材常見大山、大水、花草與樹木。
+          </p>
+        </li>
+        <li class="swiper-slide">
+          <div class="relative mb-4 lg:mb-0">
+            <img
+              src="./assets/images/artist02.jpg"
+              alt="work"
+              class="h-[232px] w-full object-cover"
+            />
+            <h3
+              class="absolute left-6 top-6 text-3xl text-white lg:text-6xl lg:leading-none"
+            >
+              Antony<br class="hidden lg:inline" />Wu
+            </h3>
+            <a
+              href="#"
+              class="btn-more absolute right-2 bottom-2 bg-white lg:right-6 lg:bottom-6"
+              >MORE</a
+            >
+          </div>
+          <p
+            class="bg-white p-6 lg:absolute lg:left-6 lg:bottom-6 lg:w-1/2 lg:bg-white/80"
+          >
+            ​喜愛大自然，創作題材常見大山、大水、花草與樹木。
+          </p>
+        </li>
+        <li class="swiper-slide">
+          <div class="relative mb-4 lg:mb-0">
+            <img
+              src="./assets/images/artist03.jpg"
+              alt="work"
+              class="h-[232px] w-full object-cover"
+            />
+            <h3
+              class="absolute left-6 top-6 text-3xl text-white lg:text-6xl lg:leading-none"
+            >
+              Antony<br class="hidden lg:inline" />Wu
+            </h3>
+            <a
+              href="#"
+              class="btn-more absolute right-2 bottom-2 bg-white lg:right-6 lg:bottom-6"
+              >MORE</a
+            >
+          </div>
+          <p
+            class="bg-white p-6 lg:absolute lg:left-6 lg:bottom-6 lg:w-1/2 lg:bg-white/80"
+          >
+            ​喜愛大自然，創作題材常見大山、大水、花草與樹木。
+          </p>
+        </li>
+        <li class="swiper-slide">
+          <div class="relative mb-4 lg:mb-0">
+            <img
+              src="./assets/images/artist05.jpg"
+              alt="work"
+              class="h-[232px] w-full object-cover"
+            />
+            <h3
+              class="absolute left-6 top-6 text-3xl text-white lg:text-6xl lg:leading-none"
+            >
+              Antony<br class="hidden lg:inline" />Wu
+            </h3>
+            <a
+              href="#"
+              class="btn-more absolute right-2 bottom-2 bg-white lg:right-6 lg:bottom-6"
+              >MORE</a
+            >
+          </div>
+          <p
+            class="bg-white p-6 lg:absolute lg:left-6 lg:bottom-6 lg:w-1/2 lg:bg-white/80"
+          >
+            ​喜愛大自然，創作題材常見大山、大水、花草與樹木。
+          </p>
+        </li>
+        <li class="swiper-slide">
+          <div class="relative mb-4 lg:mb-0">
+            <img
+              src="./assets/images/artist04.jpg"
+              alt="work"
+              class="h-[232px] w-full object-cover"
+            />
+            <h3
+              class="absolute left-6 top-6 text-3xl text-white lg:text-6xl lg:leading-none"
+            >
+              Antony<br class="hidden lg:inline" />Wu
+            </h3>
+            <a
+              href="#"
+              class="btn-more absolute right-2 bottom-2 bg-white lg:right-6 lg:bottom-6"
+              >MORE</a
+            >
+          </div>
+          <p
+            class="bg-white p-6 lg:absolute lg:left-6 lg:bottom-6 lg:w-1/2 lg:bg-white/80"
+          >
+            ​喜愛大自然，創作題材常見大山、大水、花草與樹木。
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div class="relative hidden lg:block">
+      <div class="swiper-pagination PC !-bottom-8"></div>
+    </div>
+    <div class="swiper mobile lg:hidden">
+      <ul class="swiper-wrapper">
+        <li class="swiper-slide">
+          <div class="relative mb-4">
+            <img
+              src="./assets/images/artist01.jpg"
+              alt="work"
+              class="h-[232px] w-full object-cover"
+            />
+            <h3 class="absolute left-6 top-6 text-3xl text-white">Michael</h3>
+            <a href="#" class="btn-more absolute right-2 bottom-2 bg-white"
+              >MORE</a
+            >
+          </div>
+          <p class="bg-white p-6">
+            ​喜愛大自然，創作題材常見大山、大水、花草與樹木。
+          </p>
+        </li>
+        <li class="swiper-slide">
+          <div class="relative mb-4">
+            <img
+              src="./assets/images/artist02.jpg"
+              alt="work"
+              class="h-[232px] w-full object-cover"
+            />
+            <h3 class="absolute left-6 top-6 text-3xl text-white">
+              Antony<br class="hidden" />Wu
+            </h3>
+            <a href="#" class="btn-more absolute right-2 bottom-2 bg-white"
+              >MORE</a
+            >
+          </div>
+          <p class="bg-white p-6">
+            ​喜愛大自然，創作題材常見大山、大水、花草與樹木。
+          </p>
+        </li>
+        <li class="swiper-slide">
+          <div class="relative mb-4">
+            <img
+              src="./assets/images/artist03.jpg"
+              alt="work"
+              class="h-[232px] w-full object-cover"
+            />
+            <h3 class="absolute left-6 top-6 text-3xl text-white">
+              Antony<br class="hidden" />Wu
+            </h3>
+            <a href="#" class="btn-more absolute right-2 bottom-2 bg-white"
+              >MORE</a
+            >
+          </div>
+          <p class="bg-white p-6">
+            ​喜愛大自然，創作題材常見大山、大水、花草與樹木。
+          </p>
+        </li>
+        <li class="swiper-slide">
+          <div class="relative mb-4">
+            <img
+              src="./assets/images/artist05.jpg"
+              alt="work"
+              class="h-[232px] w-full object-cover"
+            />
+            <h3 class="absolute left-6 top-6 text-3xl text-white">
+              Antony<br class="hidden" />Wu
+            </h3>
+            <a href="#" class="btn-more absolute right-2 bottom-2 bg-white"
+              >MORE</a
+            >
+          </div>
+          <p class="bg-white p-6">
+            ​喜愛大自然，創作題材常見大山、大水、花草與樹木。
+          </p>
+        </li>
+        <li class="swiper-slide">
+          <div class="relative mb-4">
+            <img
+              src="./assets/images/artist04.jpg"
+              alt="work"
+              class="h-[232px] w-full object-cover"
+            />
+            <h3 class="absolute left-6 top-6 text-3xl text-white">
+              Antony<br class="hidden" />Wu
+            </h3>
+            <a href="#" class="btn-more absolute right-2 bottom-2 bg-white"
+              >MORE</a
+            >
+          </div>
+          <p class="bg-white p-6">
+            ​喜愛大自然，創作題材常見大山、大水、花草與樹木。
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div class="relative lg:hidden">
+      <div class="swiper-pagination mobile !-bottom-8"></div>
+    </div>
+  </section>
+  <section class="container mb-10 lg:mb-20">
+    <div class="mb-6 flex items-end justify-between border-b lg:mb-12">
+      <h2 class="text-3xl lg:text-6xl">
+        Artwork<span
+          class="hidden lg:ml-4 lg:inline-block lg:text-xl lg:font-bold"
+          >最新藝術品</span
+        >
+      </h2>
+      <a
+        href="#"
+        class="btn-more border-b-0 border-transparent hover:border-black"
+        >MORE</a
+      >
+    </div>
+    <ul class="grid-fail">
+      <li class="grid-item mb-4 lg:mb-12">
+        <div class="lg:relative">
+          <img
+            src="./assets/images/art09.jpg"
+            alt="work"
+            class="h-[155px] w-full bg-white object-cover p-2 lg:mb-4 lg:h-[302px] lg:p-6"
+          />
+          <div
+            class="hover-500 hidden p-4 opacity-0 hover:bg-black/70 hover:opacity-100 lg:absolute lg:inset-6 lg:block lg:text-white"
+          >
+            <div class="flex h-full flex-col border border-white p-4">
+              <p class="mb-2">唯一想擁有的人，唯一不可以擁有的</p>
+              <p>
+                <i class="fa-brands fa-ethereum mr-2"></i>
+                300
+              </p>
+              <a
+                href="#"
+                class="btn-more ml-auto bg-white text-black lg:mt-auto"
+                >MORE</a
+              >
+            </div>
+          </div>
+        </div>
+        <h3 class="m-2 text-sm lg:border-b lg:pb-4 lg:text-base lg:font-bold">
+          區塊戀-他的私生活
+        </h3>
+      </li>
+      <li class="grid-item mb-4 lg:mb-12">
+        <div class="lg:relative">
+          <img
+            src="./assets/images/art10.jpg"
+            alt="work"
+            class="h-[167px] w-full bg-white object-cover p-2 lg:mb-4 lg:h-[375px] lg:p-6"
+          />
+          <div
+            class="hover-500 hidden p-4 opacity-0 hover:bg-black/70 hover:opacity-100 lg:absolute lg:inset-6 lg:block lg:text-white"
+          >
+            <div class="flex h-full flex-col border border-white p-4">
+              <p class="mb-2">唯一想擁有的人，唯一不可以擁有的</p>
+              <p>
+                <i class="fa-brands fa-ethereum mr-2"></i>
+                300
+              </p>
+              <a
+                href="#"
+                class="btn-more ml-auto bg-white text-black lg:mt-auto"
+                >MORE</a
+              >
+            </div>
+          </div>
+        </div>
+        <h3 class="m-2 text-sm lg:border-b lg:pb-4 lg:text-base lg:font-bold">
+          夏娃的醜聞
+        </h3>
+      </li>
+      <li class="grid-item mb-4 lg:mb-12">
+        <div class="lg:relative">
+          <img
+            src="./assets/images/art02.jpg"
+            alt="work"
+            class="h-[109px] w-full bg-white object-cover p-2 lg:mb-4 lg:h-[302px] lg:p-6"
+          />
+          <div
+            class="hover-500 hidden p-4 opacity-0 hover:bg-black/70 hover:opacity-100 lg:absolute lg:inset-6 lg:block lg:text-white"
+          >
+            <div class="flex h-full flex-col border border-white p-4">
+              <p class="mb-2">唯一想擁有的人，唯一不可以擁有的</p>
+              <p>
+                <i class="fa-brands fa-ethereum mr-2"></i>
+                300
+              </p>
+              <a
+                href="#"
+                class="btn-more ml-auto bg-white text-black lg:mt-auto"
+                >MORE</a
+              >
+            </div>
+          </div>
+        </div>
+        <h3 class="m-2 text-sm lg:border-b lg:pb-4 lg:text-base lg:font-bold">
+          藍色啤酒海
+        </h3>
+      </li>
+      <li class="grid-item mb-4 lg:mb-12">
+        <div class="lg:relative">
+          <img
+            src="./assets/images/art11.jpg"
+            alt="work"
+            class="h-[189px] w-full bg-white object-cover p-2 lg:mb-4 lg:h-[217px] lg:p-6"
+          />
+          <div
+            class="hover-500 hidden p-4 opacity-0 hover:bg-black/70 hover:opacity-100 lg:absolute lg:inset-6 lg:block lg:text-white"
+          >
+            <div class="flex h-full flex-col border border-white p-4">
+              <p class="mb-2">唯一想擁有的人，唯一不可以擁有的</p>
+              <p>
+                <i class="fa-brands fa-ethereum mr-2"></i>
+                300
+              </p>
+              <a
+                href="#"
+                class="btn-more ml-auto bg-white text-black lg:mt-auto"
+                >MORE</a
+              >
+            </div>
+          </div>
+        </div>
+        <h3 class="m-2 text-sm lg:border-b lg:pb-4 lg:text-base lg:font-bold">
+          沒有人愛我
+        </h3>
+      </li>
+      <li class="grid-item">
+        <div class="lg:relative">
+          <img
+            src="./assets/images/art12.jpg"
+            alt="work"
+            class="h-[208px] w-full bg-white object-cover p-2 lg:mb-4 lg:h-[222px] lg:p-6"
+          />
+          <div
+            class="hover-500 hidden p-4 opacity-0 hover:bg-black/70 hover:opacity-100 lg:absolute lg:inset-6 lg:block lg:text-white"
+          >
+            <div class="flex h-full flex-col border border-white p-4">
+              <p class="mb-2">唯一想擁有的人，唯一不可以擁有的</p>
+              <p>
+                <i class="fa-brands fa-ethereum mr-2"></i>
+                300
+              </p>
+              <a
+                href="#"
+                class="btn-more ml-auto bg-white text-black lg:mt-auto"
+                >MORE</a
+              >
+            </div>
+          </div>
+        </div>
+        <h3 class="m-2 text-sm lg:border-b lg:pb-4 lg:text-base lg:font-bold">
+          不哭不哭眼淚是珍珠
+        </h3>
+      </li>
+      <li class="grid-item">
+        <div class="lg:relative">
+          <img
+            src="./assets/images/art13.jpg"
+            alt="work"
+            class="h-[115px] w-full bg-white object-cover p-2 lg:mb-4 lg:h-[302px] lg:p-6"
+          />
+          <div
+            class="hover-500 hidden p-4 opacity-0 hover:bg-black/70 hover:opacity-100 lg:absolute lg:inset-6 lg:block lg:text-white"
+          >
+            <div class="flex h-full flex-col border border-white p-4">
+              <p class="mb-2">唯一想擁有的人，唯一不可以擁有的</p>
+              <p>
+                <i class="fa-brands fa-ethereum mr-2"></i>
+                300
+              </p>
+              <a
+                href="#"
+                class="btn-more ml-auto bg-white text-black lg:mt-auto"
+                >MORE</a
+              >
+            </div>
+          </div>
+        </div>
+        <h3 class="m-2 text-sm lg:border-b lg:pb-4 lg:text-base lg:font-bold">
+          十分鐘就到
+        </h3>
+      </li>
+      <li class="grid-item hidden lg:block">
+        <div class="lg:relative">
+          <img
+            src="./assets/images/art04.jpg"
+            alt="work"
+            class="h-[443px] w-full bg-white object-cover p-2 lg:mb-4 lg:p-6"
+          />
+          <div
+            class="hover-500 hidden p-4 opacity-0 hover:bg-black/70 hover:opacity-100 lg:absolute lg:inset-6 lg:block lg:text-white"
+          >
+            <div class="flex h-full flex-col border border-white p-4">
+              <p class="mb-2">唯一想擁有的人，唯一不可以擁有的</p>
+              <p>
+                <i class="fa-brands fa-ethereum mr-2"></i>
+                300
+              </p>
+              <a
+                href="#"
+                class="btn-more ml-auto bg-white text-black lg:mt-auto"
+                >MORE</a
+              >
+            </div>
+          </div>
+        </div>
+        <h3 class="m-2 text-sm lg:border-b lg:pb-4 lg:text-base lg:font-bold">
+          我這樣有美嗎
+        </h3>
+      </li>
+      <li class="grid-item hidden lg:block">
+        <div class="lg:relative">
+          <img
+            src="./assets/images/bird02.jpg"
+            alt="work"
+            class="h-[302px] w-full bg-white object-cover p-2 lg:mb-4 lg:p-6"
+          />
+          <div
+            class="hover-500 hidden p-4 opacity-0 hover:bg-black/70 hover:opacity-100 lg:absolute lg:inset-6 lg:block lg:text-white"
+          >
+            <div class="flex h-full flex-col border border-white p-4">
+              <p class="mb-2">唯一想擁有的人，唯一不可以擁有的</p>
+              <p>
+                <i class="fa-brands fa-ethereum mr-2"></i>
+                300
+              </p>
+              <a
+                href="#"
+                class="btn-more ml-auto bg-white text-black lg:mt-auto"
+                >MORE</a
+              >
+            </div>
+          </div>
+        </div>
+        <h3 class="m-2 text-sm lg:border-b lg:pb-4 lg:text-base lg:font-bold">
+          我真的受傷了
+        </h3>
+      </li>
+    </ul>
+  </section>
+  <section class="text-center">
+    <h2
+      class="relative border-b-4 pb-8 text-3xl before:absolute before:inset-x-0 before:-bottom-2.5 before:border-b lg:text-6xl"
+    >
+      Join Us
+      <span class="mt-4 block text-xl font-bold">創建並出售你的藝術品</span>
+    </h2>
+    <ul
+      class="container my-12 grid gap-y-12 font-noto md:grid-cols-2 lg:my-20 lg:grid-cols-4 lg:gap-x-6"
+    >
+      <li>
+        <i class="fa-solid fa-wallet mb-4 text-5xl text-orange"></i>
+        <h3 class="mb-6 text-lg font-bold">設置你的錢包</h3>
+        <p>設置好您選擇的錢包後<br />點擊右上角的錢包圖標進行連接</p>
+      </li>
+      <li>
+        <i class="fa-solid fa-pen-ruler mb-4 text-5xl text-orange"></i>
+        <h3 class="mb-6 text-lg font-bold">創建您的主頁</h3>
+        <p>註冊成為會員，編輯您的資料<br />讓大家了解你</p>
+      </li>
+      <li>
+        <i class="fa-solid fa-icons mb-4 text-5xl text-orange"></i>
+        <h3 class="mb-6 text-lg font-bold">添加你的 NFT</h3>
+        <p>上傳你的作品<br />添加標題和描述</p>
+      </li>
+      <li>
+        <i class="fa-solid fa-tags mb-4 text-5xl text-orange"></i>
+        <h3 class="mb-6 text-lg font-bold">列出它們出售</h3>
+        <p>選擇出售 NFT 的方式<br />並設定價格，等待有緣人</p>
+      </li>
+    </ul>
+  </section>
+</main>
 
-  
-<p class="text-3xl font-bold underline">This is a demo.</p>
 
-  <footer class="footer">
-    footer
-  </footer>
-  <script src="./assets/js/vendors.js"></script>
-  <script src="./assets/js/all.js"></script>
-</body>
-
+    <footer
+      class="relative border-t-4 py-6 text-center before:absolute before:inset-x-0 before:-top-2.5 before:border-t"
+    >
+      <h5 class="font-noto">© ART NFT. All Rights Reserved</h5>
+    </footer>
+    <div
+      id="connectWallet"
+      class="hover-500 invisible fixed inset-0 z-40 opacity-0 target:visible target:opacity-100 lg:flex lg:items-center lg:justify-center lg:bg-black/60"
+    >
+      <div class="h-full bg-white lg:h-auto lg:w-[498px]">
+        <div class="border-b px-3 py-4">
+          <h3 class="text-center text-xl">連結你的錢包</h3>
+          <a
+            href="#"
+            class="fa-solid fa-xmark absolute top-5 right-6 text-xl lg:!hidden"
+          ></a>
+        </div>
+        <ul
+          class="container space-y-2 p-6 lg:grid lg:grid-cols-2 lg:gap-2 lg:space-y-0"
+        >
+          <li class="relative">
+            <input
+              id="MetaMask"
+              type="radio"
+              name="wallet"
+              class="peer contents"
+            />
+            <label
+              for="MetaMask"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect01.png"
+                alt="MetaMask"
+                class="h-4 w-4"
+              />
+              <h4>MetaMask</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+          <li class="relative">
+            <input
+              id="Coinbase"
+              type="radio"
+              name="wallet"
+              class="peer contents"
+            />
+            <label
+              for="Coinbase"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect02.png"
+                alt="Coinbase Wallet"
+                class="h-4 w-4"
+              />
+              <h4>Coinbase Wallet</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+          <li class="relative">
+            <input
+              id="WalletConnect"
+              type="radio"
+              name="wallet"
+              class="peer contents"
+            />
+            <label
+              for="WalletConnect"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect03.png"
+                alt="WalletConnect"
+                class="h-4 w-4"
+              />
+              <h4>WalletConnect</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+          <li class="relative">
+            <input
+              id="Phantom"
+              type="radio"
+              name="wallet"
+              class="peer contents"
+            />
+            <label
+              for="Phantom"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect04.png"
+                alt="Phantom"
+                class="h-4 w-4"
+              />
+              <h4>Phantom</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+          <li class="relative">
+            <input id="Glow" type="radio" name="wallet" class="peer contents" />
+            <label
+              for="Glow"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect05.png"
+                alt="Glow"
+                class="h-4 w-4"
+              />
+              <h4>Glow</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+          <li class="relative">
+            <input
+              id="Fortmatic"
+              type="radio"
+              name="wallet"
+              class="peer contents"
+            />
+            <label
+              for="Fortmatic"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect06.png"
+                alt="Fortmatic"
+                class="h-4 w-4"
+              />
+              <h4>Fortmatic</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+        </ul>
+        <a
+          href="#"
+          class="absolute inset-x-0 bottom-0 border bg-orange p-3 text-center text-white lg:static lg:mx-auto lg:mb-6 lg:w-fit lg:px-12"
+          >連結錢包</a
+        >
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/a6505b48a1.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="./assets/js/vendors.js"></script>
+    <script src="./assets/js/all.js"></script>
+  </body>
 </html>

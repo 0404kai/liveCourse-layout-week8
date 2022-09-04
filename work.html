@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/logo.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Paytone+One&family=Squada+One&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./assets/style/all.css" />
+    <title>作品介紹</title>
+  </head>
+
+  <body class="bg-gray">
+    <header class="fixed inset-x-0 top-0 z-30 border-b bg-gray py-4 lg:py-0">
+      <div class="container flex items-center justify-between">
+        <a href="index.html">
+          <img
+            src="./assets/images/logo.svg"
+            alt="logo"
+            class="w-[85px] lg:w-[190px]"
+          />
+        </a>
+        <div
+          class="flex items-center justify-end gap-x-6 lg:items-stretch lg:gap-0"
+        >
+          <div
+            id="searchBar"
+            class="hover-500 invisible absolute inset-x-2 z-10 flex items-center bg-gray opacity-0 target:visible target:opacity-100 lg:visible lg:static lg:border-x lg:px-12 lg:py-8 lg:opacity-100"
+          >
+            <a href="#" class="material-icons lg:hidden"> chevron_left </a>
+            <input
+              type="text"
+              class="w-full border-none bg-transparent placeholder:text-sm placeholder:text-gray-200 focus:ring-0 lg:w-72 lg:placeholder:text-base"
+              placeholder="搜尋作品名稱、藝術家名稱"
+            />
+            <a
+              href="#"
+              class="material-icons hover-500 font-bold hover:scale-150"
+            >
+              search
+            </a>
+          </div>
+          <a href="#searchBar" class="material-icons font-bold lg:hidden">
+            search
+          </a>
+          <button id="burger" class="flex items-center lg:hidden">
+            <span
+              class="relative h-1 w-6 bg-black transition-all duration-300 before:absolute before:top-[-8px] before:left-0 before:h-1 before:w-6 before:bg-black before:transition-all before:duration-300 after:absolute after:top-[8px] after:left-0 after:h-1 after:w-6 after:bg-black after:transition-all after:duration-300"
+            ></span>
+          </button>
+          <ul
+            id="menu"
+            class="absolute inset-x-0 top-[101%] hidden bg-white px-3 pb-6 text-center lg:static lg:!flex lg:items-center lg:divide-x lg:divide-black lg:bg-transparent lg:p-0"
+          >
+            <li class="hover-500 hover:bg-gray-100">
+              <a
+                href="explore.html"
+                class="whitespace-nowrap border-b py-6 text-lg font-bold lg:border-b-0 lg:px-12 lg:py-10"
+                >探索</a
+              >
+            </li>
+            <li class="hover-500 hover:bg-gray-100">
+              <a
+                href="ranking.html"
+                class="whitespace-nowrap py-6 text-lg font-bold lg:px-12 lg:py-10"
+                >市值</a
+              >
+            </li>
+            <li class="hover-500 hover:bg-gray-100">
+              <a
+                href="#connectWallet"
+                class="border bg-orange py-3 text-lg text-white lg:border-0 lg:bg-transparent lg:px-12 lg:py-10 lg:text-black"
+              >
+                <span class="lg:hidden">連結錢包</span>
+                <i
+                  class="fa-solid fa-wallet fa-xl before:hidden lg:before:block"
+                ></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    
+<main class="container mt-[81px] pb-12 lg:mt-[148px] lg:pb-32">
+  <section class="mb-10 lg:mb-20 lg:flex lg:gap-6">
+    <div class="mb-4 border bg-white lg:mb-0 lg:flex lg:w-9/12">
+      <img src="./assets/images/artist01.jpg" alt="work" class="lg:w-2/5" />
+      <div class="px-4 py-6 lg:w-3/5 lg:px-8">
+        <div class="mb-2 flex items-center justify-between">
+          <h1 class="text-3xl lg:text-5xl">Michael</h1>
+          <ul class="flex gap-x-2">
+            <li>
+              <a
+                href="#"
+                class="fa-brands fa-discord hover-500 hover:scale-125"
+              ></a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="fa-brands fa-facebook-f hover-500 hover:scale-125"
+              ></a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="fa-solid fa-globe hover-500 hover:scale-125"
+              ></a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="fa-brands fa-twitter hover-500 hover:scale-125"
+              ></a>
+            </li>
+          </ul>
+        </div>
+        <h2 class="mb-6 leading-none">0x3ya666…88ef</h2>
+        <p class="font-noto tracking-tight">
+          Michael自小在山林長大，能夠與花草樹木大自然進行靈體溝通，創作題材常見大山、大水、花草與樹木，從日常生活出發，擁有個⼈獨樹⼀格的創作風格，作品觸及靈魂深處、探索未知宇宙，透過與大自然的溝通，探討著存在的本質。​
+        </p>
+      </div>
+    </div>
+    <ul class="divide-y border bg-white lg:w-3/12">
+      <li class="flex items-center justify-between px-6 py-4">
+        <span class="font-bold">販售中</span>
+        <span class="text-3xl leading-none">168</span>
+      </li>
+      <li class="flex items-center justify-between px-6 py-4">
+        <span class="font-bold">地板價格</span>
+        <span class="text-3xl leading-none"
+          >0.6 <span class="text-2xl">ETH</span></span
+        >
+      </li>
+      <li class="flex items-center justify-between px-6 py-4">
+        <span class="font-noto font-bold">7 日成交</span>
+        <span class="text-3xl leading-none"
+          >8.8 <span class="text-2xl">ETH</span></span
+        >
+      </li>
+      <li class="flex items-center justify-between px-6 py-4">
+        <span class="font-noto font-bold">30 日成交</span>
+        <span class="text-3xl leading-none"
+          >23.1 <span class="text-2xl">ETH</span></span
+        >
+      </li>
+    </ul>
+  </section>
+  <section class="mb-6 flex lg:mb-10">
+    <h2 class="border border-b-0 text-3xl leading-none lg:text-5xl">
+      <a href="#" class="hover-500 p-4 hover:opacity-60 lg:px-12"
+        >Art Works<span class="hidden lg:ml-4 lg:inline lg:text-xl lg:font-bold"
+          >系列作品</span
+        ></a
+      >
+    </h2>
+    <h2
+      class="flex-grow border-b text-3xl leading-none text-gray-200 lg:text-5xl"
+    >
+      <a href="collection.html" class="hover-500 p-4 hover:opacity-60 lg:px-12"
+        >Collection<span
+          class="hidden lg:ml-4 lg:inline lg:text-xl lg:font-bold"
+          >收藏品</span
+        ></a
+      >
+    </h2>
+  </section>
+  <section
+    class="relative mb-4 border bg-white px-4 py-8 before:absolute before:left-0 before:top-0 before:border-t-24 before:border-r-24 before:border-transparent before:border-t-black after:absolute after:right-0 after:top-0 after:border-r-24 after:border-b-24 after:border-transparent after:border-r-black lg:mb-20 lg:px-[110px] lg:py-12"
+  >
+    <div class="lg:mb-12 lg:flex lg:items-end lg:justify-between">
+      <div class="lg:w-4/5">
+        <h3 class="mb-4 text-2xl font-bold">追求者送我的花</h3>
+        <p class="mb-6 tracking-tight lg:mb-0 lg:tracking-normal">
+          我又沒有特別喜歡花，為什麼不給我現金就好，擺在那也不知道要幹嘛，只好畫起來看有沒有人要買，阿不然如果真的喜歡我，把這些都買回去八。
+        </p>
+      </div>
+      <img
+        src="./assets/images/demo01.jpg"
+        alt="work"
+        class="mb-4 h-[313px] w-full border-10 object-cover lg:hidden"
+      />
+      <a href="filter.html" class="btn-more mx-auto max-w-fit lg:mx-0">MORE</a>
+    </div>
+    <ul class="flex justify-between">
+      <li>
+        <img
+          src="./assets/images/demo01.jpg"
+          alt="work"
+          class="-mb-24 hidden h-[270px] w-[263px] border-10 object-cover lg:block"
+        />
+      </li>
+      <li>
+        <img
+          src="./assets/images/demo2.jpg"
+          alt="work"
+          class="-mb-24 hidden h-[270px] w-[263px] border-10 object-cover lg:block"
+        />
+      </li>
+      <li>
+        <img
+          src="./assets/images/demo03.jpg"
+          alt="work"
+          class="-mb-24 hidden h-[270px] w-[263px] border-10 object-cover lg:block"
+        />
+      </li>
+      <li>
+        <img
+          src="./assets/images/demo4.jpg"
+          alt="work"
+          class="-mb-24 hidden h-[270px] w-[263px] border-10 object-cover lg:block"
+        />
+      </li>
+    </ul>
+  </section>
+  <section
+    class="relative border bg-white px-4 py-8 before:absolute before:left-0 before:top-0 before:border-t-24 before:border-r-24 before:border-transparent before:border-t-black after:absolute after:right-0 after:top-0 after:border-r-24 after:border-b-24 after:border-transparent after:border-r-black lg:px-[110px] lg:py-12"
+  >
+    <div class="lg:mb-12 lg:flex lg:items-end lg:justify-between">
+      <div class="lg:w-4/5">
+        <h3 class="mb-4 text-2xl font-bold">我家窗前的鳥</h3>
+        <p class="mb-6 tracking-tight lg:mb-0 lg:tracking-normal">
+          家門前每天都有不同的小鳥，大多數的小鳥都有特殊能力，特殊能力是什麼我就不說了，希望大家能從作品感受到小鳥的快樂。
+        </p>
+      </div>
+      <img
+        src="./assets/images/bird02.jpg"
+        alt="work"
+        class="mb-4 h-[313px] w-full border-10 object-cover lg:hidden"
+      />
+      <a href="filter.html" class="btn-more mx-auto max-w-fit lg:mx-0">MORE</a>
+    </div>
+    <ul class="flex justify-between">
+      <li>
+        <img
+          src="./assets/images/bird02.jpg"
+          alt="work"
+          class="-mb-24 hidden h-[270px] w-[263px] border-10 object-cover lg:block"
+        />
+      </li>
+      <li>
+        <img
+          src="./assets/images/bird03.jpg"
+          alt="work"
+          class="-mb-24 hidden h-[270px] w-[263px] border-10 object-cover lg:block"
+        />
+      </li>
+      <li>
+        <img
+          src="./assets/images/bird04.jpg"
+          alt="work"
+          class="-mb-24 hidden h-[270px] w-[263px] border-10 object-cover lg:block"
+        />
+      </li>
+      <li>
+        <img
+          src="./assets/images/bird05.jpg"
+          alt="work"
+          class="-mb-24 hidden h-[270px] w-[263px] border-10 object-cover lg:block"
+        />
+      </li>
+    </ul>
+  </section>
+</main>
+
+
+    <footer
+      class="relative border-t-4 py-6 text-center before:absolute before:inset-x-0 before:-top-2.5 before:border-t"
+    >
+      <h5 class="font-noto">© ART NFT. All Rights Reserved</h5>
+    </footer>
+    <div
+      id="connectWallet"
+      class="hover-500 invisible fixed inset-0 z-40 opacity-0 target:visible target:opacity-100 lg:flex lg:items-center lg:justify-center lg:bg-black/60"
+    >
+      <div class="h-full bg-white lg:h-auto lg:w-[498px]">
+        <div class="border-b px-3 py-4">
+          <h3 class="text-center text-xl">連結你的錢包</h3>
+          <a
+            href="#"
+            class="fa-solid fa-xmark absolute top-5 right-6 text-xl lg:!hidden"
+          ></a>
+        </div>
+        <ul
+          class="container space-y-2 p-6 lg:grid lg:grid-cols-2 lg:gap-2 lg:space-y-0"
+        >
+          <li class="relative">
+            <input
+              id="MetaMask"
+              type="radio"
+              name="wallet"
+              class="peer contents"
+            />
+            <label
+              for="MetaMask"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect01.png"
+                alt="MetaMask"
+                class="h-4 w-4"
+              />
+              <h4>MetaMask</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+          <li class="relative">
+            <input
+              id="Coinbase"
+              type="radio"
+              name="wallet"
+              class="peer contents"
+            />
+            <label
+              for="Coinbase"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect02.png"
+                alt="Coinbase Wallet"
+                class="h-4 w-4"
+              />
+              <h4>Coinbase Wallet</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+          <li class="relative">
+            <input
+              id="WalletConnect"
+              type="radio"
+              name="wallet"
+              class="peer contents"
+            />
+            <label
+              for="WalletConnect"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect03.png"
+                alt="WalletConnect"
+                class="h-4 w-4"
+              />
+              <h4>WalletConnect</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+          <li class="relative">
+            <input
+              id="Phantom"
+              type="radio"
+              name="wallet"
+              class="peer contents"
+            />
+            <label
+              for="Phantom"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect04.png"
+                alt="Phantom"
+                class="h-4 w-4"
+              />
+              <h4>Phantom</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+          <li class="relative">
+            <input id="Glow" type="radio" name="wallet" class="peer contents" />
+            <label
+              for="Glow"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect05.png"
+                alt="Glow"
+                class="h-4 w-4"
+              />
+              <h4>Glow</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+          <li class="relative">
+            <input
+              id="Fortmatic"
+              type="radio"
+              name="wallet"
+              class="peer contents"
+            />
+            <label
+              for="Fortmatic"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect06.png"
+                alt="Fortmatic"
+                class="h-4 w-4"
+              />
+              <h4>Fortmatic</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+        </ul>
+        <a
+          href="#"
+          class="absolute inset-x-0 bottom-0 border bg-orange p-3 text-center text-white lg:static lg:mx-auto lg:mb-6 lg:w-fit lg:px-12"
+          >連結錢包</a
+        >
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/a6505b48a1.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="./assets/js/vendors.js"></script>
+    <script src="./assets/js/all.js"></script>
+  </body>
+</html>

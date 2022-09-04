@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/logo.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Paytone+One&family=Squada+One&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./assets/style/all.css" />
+    <title>排行</title>
+  </head>
+
+  <body class="bg-gray">
+    <header class="fixed inset-x-0 top-0 z-30 border-b bg-gray py-4 lg:py-0">
+      <div class="container flex items-center justify-between">
+        <a href="index.html">
+          <img
+            src="./assets/images/logo.svg"
+            alt="logo"
+            class="w-[85px] lg:w-[190px]"
+          />
+        </a>
+        <div
+          class="flex items-center justify-end gap-x-6 lg:items-stretch lg:gap-0"
+        >
+          <div
+            id="searchBar"
+            class="hover-500 invisible absolute inset-x-2 z-10 flex items-center bg-gray opacity-0 target:visible target:opacity-100 lg:visible lg:static lg:border-x lg:px-12 lg:py-8 lg:opacity-100"
+          >
+            <a href="#" class="material-icons lg:hidden"> chevron_left </a>
+            <input
+              type="text"
+              class="w-full border-none bg-transparent placeholder:text-sm placeholder:text-gray-200 focus:ring-0 lg:w-72 lg:placeholder:text-base"
+              placeholder="搜尋作品名稱、藝術家名稱"
+            />
+            <a
+              href="#"
+              class="material-icons hover-500 font-bold hover:scale-150"
+            >
+              search
+            </a>
+          </div>
+          <a href="#searchBar" class="material-icons font-bold lg:hidden">
+            search
+          </a>
+          <button id="burger" class="flex items-center lg:hidden">
+            <span
+              class="relative h-1 w-6 bg-black transition-all duration-300 before:absolute before:top-[-8px] before:left-0 before:h-1 before:w-6 before:bg-black before:transition-all before:duration-300 after:absolute after:top-[8px] after:left-0 after:h-1 after:w-6 after:bg-black after:transition-all after:duration-300"
+            ></span>
+          </button>
+          <ul
+            id="menu"
+            class="absolute inset-x-0 top-[101%] hidden bg-white px-3 pb-6 text-center lg:static lg:!flex lg:items-center lg:divide-x lg:divide-black lg:bg-transparent lg:p-0"
+          >
+            <li class="hover-500 hover:bg-gray-100">
+              <a
+                href="explore.html"
+                class="whitespace-nowrap border-b py-6 text-lg font-bold lg:border-b-0 lg:px-12 lg:py-10"
+                >探索</a
+              >
+            </li>
+            <li class="hover-500 hover:bg-gray-100">
+              <a
+                href="ranking.html"
+                class="whitespace-nowrap py-6 text-lg font-bold lg:px-12 lg:py-10"
+                >市值</a
+              >
+            </li>
+            <li class="hover-500 hover:bg-gray-100">
+              <a
+                href="#connectWallet"
+                class="border bg-orange py-3 text-lg text-white lg:border-0 lg:bg-transparent lg:px-12 lg:py-10 lg:text-black"
+              >
+                <span class="lg:hidden">連結錢包</span>
+                <i
+                  class="fa-solid fa-wallet fa-xl before:hidden lg:before:block"
+                ></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    
+<main class="container mt-[81px] pb-12 lg:mt-[148px] lg:pb-20">
+  <h1 class="mb-4 text-center text-3xl font-bold lg:mb-6 lg:text-5xl">
+    市價排行榜
+  </h1>
+  <p class="mb-8 text-center font-noto lg:mb-12">
+    NFT系列藝術作品排行榜！全球注目指標
+  </p>
+  <table id="collapse" class="w-full">
+    <thead class="hidden lg:mb-4 lg:block">
+      <tr class="grid grid-cols-10">
+        <th class="col-span-3 col-start-2 text-left font-normal">
+          系列作品名稱
+        </th>
+        <th class="font-normal">價值</th>
+        <th class="font-normal">24h%</th>
+        <th class="font-normal">7d%</th>
+        <th class="font-normal">地板價</th>
+        <th class="font-normal">擁有者</th>
+        <th class="font-normal">作品數量</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y border bg-white lg:text-center">
+      <tr class="relative lg:grid lg:grid-cols-10 lg:items-center">
+        <td class="lg:w-1/10 px-2 text-center font-paytone text-2xl">1</td>
+        <td class="flex items-center border-l py-4 pl-2 lg:col-span-3">
+          <img
+            src="./assets/images/art03.jpg"
+            alt="work"
+            class="mr-2 h-12 w-12 rounded-full"
+          />
+          <h2 class="text-sm font-bold">追求者送我的花</h2>
+        </td>
+        <td class="pr-2 text-right">
+          <i class="fa-brands fa-ethereum mr-2"></i>
+          <span class="text-xl">1,774.19</span>
+          <a
+            href="#"
+            class="fa-solid fa-plus absolute right-0 bottom-0 z-10 text-sm text-white after:absolute after:right-0 after:bottom-0 after:-z-10 after:border-b-32 after:border-l-32 after:border-transparent after:border-b-black lg:!hidden"
+          ></a>
+        </td>
+        <td class="hidden text-xl text-green lg:block">+220.49%</td>
+        <td class="hidden text-xl text-orange lg:block">-2.43%</td>
+        <td class="hidden lg:block">
+          <span>
+            <i class="fa-brands fa-ethereum mr-2"></i>
+            <span class="text-xl">2.90</span>
+          </span>
+        </td>
+        <td class="hidden text-xl lg:block">32.1K</td>
+        <td class="hidden text-xl lg:block">1000</td>
+        <td
+          class="hover-500 absolute inset-x-0 top-full z-20 max-h-0 overflow-hidden bg-white lg:hidden"
+        >
+          <ul
+            class="hover-500 flex flex-wrap justify-center gap-y-4 p-4 text-center"
+          >
+            <li class="w-1/3">
+              <span class="font-noto text-sm">24h%</span><br />
+              <span class="text-xl text-green">+220.49%</span>
+            </li>
+            <li class="w-1/3">
+              <span class="font-noto text-sm">7d%</span><br />
+              <span class="text-xl text-orange">-2.43%</span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">地板價</span><br />
+              <span>
+                <i class="fa-brands fa-ethereum mr-2"></i>
+                <span class="text-xl">2.90</span>
+              </span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">擁有者</span><br />
+              <span class="text-xl">32.1K</span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">作品數量</span><br />
+              <span class="text-xl">1000</span>
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr class="relative lg:grid lg:grid-cols-10 lg:items-center">
+        <td class="lg:w-1/10 px-2 text-center font-paytone text-2xl">2</td>
+        <td class="flex items-center border-l py-4 pl-2 lg:col-span-3">
+          <img
+            src="./assets/images/art06.jpg"
+            alt="work"
+            class="mr-2 h-12 w-12 rounded-full"
+          />
+          <h2 class="text-sm font-bold">夏天的時候</h2>
+        </td>
+        <td class="pr-2 text-right">
+          <i class="fa-brands fa-ethereum mr-2"></i>
+          <span class="text-xl">1,524.89</span>
+          <a
+            href="#"
+            class="fa-solid fa-plus absolute right-0 bottom-0 z-10 text-sm text-white after:absolute after:right-0 after:bottom-0 after:-z-10 after:border-b-32 after:border-l-32 after:border-transparent after:border-b-black lg:!hidden"
+          ></a>
+        </td>
+        <td class="hidden text-xl text-green lg:block">+80.49%</td>
+        <td class="hidden text-xl text-orange lg:block">-2.43%</td>
+        <td class="hidden lg:block">
+          <span>
+            <i class="fa-brands fa-ethereum mr-2"></i>
+            <span class="text-xl">90.23</span>
+          </span>
+        </td>
+        <td class="hidden text-xl lg:block">32.1K</td>
+        <td class="hidden text-xl lg:block">1000</td>
+        <td
+          class="hover-500 absolute inset-x-0 top-full z-20 max-h-0 overflow-hidden bg-white lg:hidden"
+        >
+          <ul
+            class="hover-500 flex flex-wrap justify-center gap-y-4 p-4 text-center"
+          >
+            <li class="w-1/3">
+              <span class="font-noto text-sm">24h%</span><br />
+              <span class="text-xl text-green">+220.49%</span>
+            </li>
+            <li class="w-1/3">
+              <span class="font-noto text-sm">7d%</span><br />
+              <span class="text-xl text-orange">-2.43%</span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">地板價</span><br />
+              <span>
+                <i class="fa-brands fa-ethereum mr-2"></i>
+                <span class="text-xl">2.90</span>
+              </span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">擁有者</span><br />
+              <span class="text-xl">32.1K</span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">作品數量</span><br />
+              <span class="text-xl">1000</span>
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr class="relative lg:grid lg:grid-cols-10 lg:items-center">
+        <td class="lg:w-1/10 px-2 text-center font-paytone text-2xl">3</td>
+        <td class="flex items-center border-l py-4 pl-2 lg:col-span-3">
+          <img
+            src="./assets/images/art02.jpg"
+            alt="work"
+            class="mr-2 h-12 w-12 rounded-full"
+          />
+          <h2 class="text-sm font-bold">海洋波度</h2>
+        </td>
+        <td class="pr-2 text-right">
+          <i class="fa-brands fa-ethereum mr-2"></i>
+          <span class="text-xl">1,400.59</span>
+          <a
+            href="#"
+            class="fa-solid fa-plus absolute right-0 bottom-0 z-10 text-sm text-white after:absolute after:right-0 after:bottom-0 after:-z-10 after:border-b-32 after:border-l-32 after:border-transparent after:border-b-black lg:!hidden"
+          ></a>
+        </td>
+        <td class="hidden text-xl text-green lg:block">-3.92%</td>
+        <td class="hidden text-xl text-orange lg:block">-13.43%</td>
+        <td class="hidden lg:block">
+          <span>
+            <i class="fa-brands fa-ethereum mr-2"></i>
+            <span class="text-xl">2.90</span>
+          </span>
+        </td>
+        <td class="hidden text-xl lg:block">32.1K</td>
+        <td class="hidden text-xl lg:block">1000</td>
+        <td
+          class="hover-500 absolute inset-x-0 top-full z-20 max-h-0 overflow-hidden bg-white lg:hidden"
+        >
+          <ul
+            class="hover-500 flex flex-wrap justify-center gap-y-4 p-4 text-center"
+          >
+            <li class="w-1/3">
+              <span class="font-noto text-sm">24h%</span><br />
+              <span class="text-xl text-green">+220.49%</span>
+            </li>
+            <li class="w-1/3">
+              <span class="font-noto text-sm">7d%</span><br />
+              <span class="text-xl text-orange">-2.43%</span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">地板價</span><br />
+              <span>
+                <i class="fa-brands fa-ethereum mr-2"></i>
+                <span class="text-xl">2.90</span>
+              </span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">擁有者</span><br />
+              <span class="text-xl">32.1K</span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">作品數量</span><br />
+              <span class="text-xl">1000</span>
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr class="relative lg:grid lg:grid-cols-10 lg:items-center">
+        <td class="lg:w-1/10 px-2 text-center font-paytone text-2xl">4</td>
+        <td class="flex items-center border-l py-4 pl-2 lg:col-span-3">
+          <img
+            src="./assets/images/art13.jpg"
+            alt="work"
+            class="mr-2 h-12 w-12 rounded-full"
+          />
+          <h2 class="text-sm font-bold">賴床真的很不好</h2>
+        </td>
+        <td class="pr-2 text-right">
+          <i class="fa-brands fa-ethereum mr-2"></i>
+          <span class="text-xl">1,224.88</span>
+          <a
+            href="#"
+            class="fa-solid fa-plus absolute right-0 bottom-0 z-10 text-sm text-white after:absolute after:right-0 after:bottom-0 after:-z-10 after:border-b-32 after:border-l-32 after:border-transparent after:border-b-black lg:!hidden"
+          ></a>
+        </td>
+        <td class="hidden text-xl text-green lg:block">-9.23%</td>
+        <td class="hidden text-xl text-orange lg:block">-20.43%</td>
+        <td class="hidden lg:block">
+          <span>
+            <i class="fa-brands fa-ethereum mr-2"></i>
+            <span class="text-xl">2.90</span>
+          </span>
+        </td>
+        <td class="hidden text-xl lg:block">32.1K</td>
+        <td class="hidden text-xl lg:block">1000</td>
+        <td
+          class="hover-500 absolute inset-x-0 top-full z-20 max-h-0 overflow-hidden bg-white lg:hidden"
+        >
+          <ul
+            class="hover-500 flex flex-wrap justify-center gap-y-4 p-4 text-center"
+          >
+            <li class="w-1/3">
+              <span class="font-noto text-sm">24h%</span><br />
+              <span class="text-xl text-green">+220.49%</span>
+            </li>
+            <li class="w-1/3">
+              <span class="font-noto text-sm">7d%</span><br />
+              <span class="text-xl text-orange">-2.43%</span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">地板價</span><br />
+              <span>
+                <i class="fa-brands fa-ethereum mr-2"></i>
+                <span class="text-xl">2.90</span>
+              </span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">擁有者</span><br />
+              <span class="text-xl">32.1K</span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">作品數量</span><br />
+              <span class="text-xl">1000</span>
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr class="relative lg:grid lg:grid-cols-10 lg:items-center">
+        <td class="lg:w-1/10 px-2 text-center font-paytone text-2xl">5</td>
+        <td class="flex items-center border-l py-4 pl-2 lg:col-span-3">
+          <img
+            src="./assets/images/art01.jpg"
+            alt="work"
+            class="mr-2 h-12 w-12 rounded-full"
+          />
+          <h2 class="text-sm font-bold">瞳孔:流動的脈絡</h2>
+        </td>
+        <td class="pr-2 text-right">
+          <i class="fa-brands fa-ethereum mr-2"></i>
+          <span class="text-xl">1,021.09</span>
+          <a
+            href="#"
+            class="fa-solid fa-plus absolute right-0 bottom-0 z-10 text-sm text-white after:absolute after:right-0 after:bottom-0 after:-z-10 after:border-b-32 after:border-l-32 after:border-transparent after:border-b-black lg:!hidden"
+          ></a>
+        </td>
+        <td class="hidden text-xl text-green lg:block">+83.49%</td>
+        <td class="hidden text-xl text-orange lg:block">-1.43%</td>
+        <td class="hidden lg:block">
+          <span>
+            <i class="fa-brands fa-ethereum mr-2"></i>
+            <span class="text-xl">2.90</span>
+          </span>
+        </td>
+        <td class="hidden text-xl lg:block">32.1K</td>
+        <td class="hidden text-xl lg:block">1000</td>
+        <td
+          class="hover-500 absolute inset-x-0 top-full z-20 max-h-0 overflow-hidden bg-white lg:hidden"
+        >
+          <ul
+            class="hover-500 flex flex-wrap justify-center gap-y-4 p-4 text-center"
+          >
+            <li class="w-1/3">
+              <span class="font-noto text-sm">24h%</span><br />
+              <span class="text-xl text-green">+220.49%</span>
+            </li>
+            <li class="w-1/3">
+              <span class="font-noto text-sm">7d%</span><br />
+              <span class="text-xl text-orange">-2.43%</span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">地板價</span><br />
+              <span>
+                <i class="fa-brands fa-ethereum mr-2"></i>
+                <span class="text-xl">2.90</span>
+              </span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">擁有者</span><br />
+              <span class="text-xl">32.1K</span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">作品數量</span><br />
+              <span class="text-xl">1000</span>
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr class="relative lg:grid lg:grid-cols-10 lg:items-center">
+        <td class="lg:w-1/10 px-2 text-center font-paytone text-2xl">6</td>
+        <td class="flex items-center border-l py-4 pl-2 lg:col-span-3">
+          <img
+            src="./assets/images/art12.jpg"
+            alt="work"
+            class="mr-2 h-12 w-12 rounded-full"
+          />
+          <h2 class="text-sm font-bold">哭泣的時候</h2>
+        </td>
+        <td class="pr-2 text-right">
+          <i class="fa-brands fa-ethereum mr-2"></i>
+          <span class="text-xl">921.42</span>
+          <a
+            href="#"
+            class="fa-solid fa-plus absolute right-0 bottom-0 z-10 text-sm text-white after:absolute after:right-0 after:bottom-0 after:-z-10 after:border-b-32 after:border-l-32 after:border-transparent after:border-b-black lg:!hidden"
+          ></a>
+        </td>
+        <td class="hidden text-xl text-green lg:block">-9.43%</td>
+        <td class="hidden text-xl text-orange lg:block">+183.49%</td>
+        <td class="hidden lg:block">
+          <span>
+            <i class="fa-brands fa-ethereum mr-2"></i>
+            <span class="text-xl">2.90</span>
+          </span>
+        </td>
+        <td class="hidden text-xl lg:block">32.1K</td>
+        <td class="hidden text-xl lg:block">1000</td>
+        <td
+          class="hover-500 absolute inset-x-0 top-full z-20 max-h-0 overflow-hidden bg-white lg:hidden"
+        >
+          <ul
+            class="hover-500 flex flex-wrap justify-center gap-y-4 p-4 text-center"
+          >
+            <li class="w-1/3">
+              <span class="font-noto text-sm">24h%</span><br />
+              <span class="text-xl text-green">+220.49%</span>
+            </li>
+            <li class="w-1/3">
+              <span class="font-noto text-sm">7d%</span><br />
+              <span class="text-xl text-orange">-2.43%</span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">地板價</span><br />
+              <span>
+                <i class="fa-brands fa-ethereum mr-2"></i>
+                <span class="text-xl">2.90</span>
+              </span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">擁有者</span><br />
+              <span class="text-xl">32.1K</span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">作品數量</span><br />
+              <span class="text-xl">1000</span>
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr class="relative lg:grid lg:grid-cols-10 lg:items-center">
+        <td class="lg:w-1/10 px-2 text-center font-paytone text-2xl">7</td>
+        <td class="flex items-center border-l py-4 pl-2 lg:col-span-3">
+          <img
+            src="./assets/images/demo03.jpg"
+            alt="work"
+            class="mr-2 h-12 w-12 rounded-full"
+          />
+          <h2 class="text-sm font-bold">破碎的菠蘿麵包</h2>
+        </td>
+        <td class="pr-2 text-right">
+          <i class="fa-brands fa-ethereum mr-2"></i>
+          <span class="text-xl">888.88</span>
+          <a
+            href="#"
+            class="fa-solid fa-plus absolute right-0 bottom-0 z-10 text-sm text-white after:absolute after:right-0 after:bottom-0 after:-z-10 after:border-b-32 after:border-l-32 after:border-transparent after:border-b-black lg:!hidden"
+          ></a>
+        </td>
+        <td class="hidden text-xl text-green lg:block">+20.49%</td>
+        <td class="hidden text-xl text-orange lg:block">-0.43%</td>
+        <td class="hidden lg:block">
+          <span>
+            <i class="fa-brands fa-ethereum mr-2"></i>
+            <span class="text-xl">2.90</span>
+          </span>
+        </td>
+        <td class="hidden text-xl lg:block">32.1K</td>
+        <td class="hidden text-xl lg:block">1000</td>
+        <td
+          class="hover-500 absolute inset-x-0 top-full z-20 max-h-0 overflow-hidden bg-white lg:hidden"
+        >
+          <ul
+            class="hover-500 flex flex-wrap justify-center gap-y-4 p-4 text-center"
+          >
+            <li class="w-1/3">
+              <span class="font-noto text-sm">24h%</span><br />
+              <span class="text-xl text-green">+220.49%</span>
+            </li>
+            <li class="w-1/3">
+              <span class="font-noto text-sm">7d%</span><br />
+              <span class="text-xl text-orange">-2.43%</span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">地板價</span><br />
+              <span>
+                <i class="fa-brands fa-ethereum mr-2"></i>
+                <span class="text-xl">2.90</span>
+              </span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">擁有者</span><br />
+              <span class="text-xl">32.1K</span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">作品數量</span><br />
+              <span class="text-xl">1000</span>
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr class="relative lg:grid lg:grid-cols-10 lg:items-center">
+        <td class="lg:w-1/10 px-2 text-center font-paytone text-2xl">8</td>
+        <td class="flex items-center border-l py-4 pl-2 lg:col-span-3">
+          <img
+            src="./assets/images/art08.jpg"
+            alt="work"
+            class="mr-2 h-12 w-12 rounded-full"
+          />
+          <h2 class="text-sm font-bold">人生中的貓咪們</h2>
+        </td>
+        <td class="pr-2 text-right">
+          <i class="fa-brands fa-ethereum mr-2"></i>
+          <span class="text-xl">770.23</span>
+          <a
+            href="#"
+            class="fa-solid fa-plus absolute right-0 bottom-0 z-10 text-sm text-white after:absolute after:right-0 after:bottom-0 after:-z-10 after:border-b-32 after:border-l-32 after:border-transparent after:border-b-black lg:!hidden"
+          ></a>
+        </td>
+        <td class="hidden text-xl text-green lg:block">+32.49%</td>
+        <td class="hidden text-xl text-orange lg:block">+30.23%</td>
+        <td class="hidden lg:block">
+          <span>
+            <i class="fa-brands fa-ethereum mr-2"></i>
+            <span class="text-xl">2.90</span>
+          </span>
+        </td>
+        <td class="hidden text-xl lg:block">32.1K</td>
+        <td class="hidden text-xl lg:block">1000</td>
+        <td
+          class="hover-500 absolute inset-x-0 top-full z-20 max-h-0 overflow-hidden bg-white lg:hidden"
+        >
+          <ul
+            class="hover-500 flex flex-wrap justify-center gap-y-4 p-4 text-center"
+          >
+            <li class="w-1/3">
+              <span class="font-noto text-sm">24h%</span><br />
+              <span class="text-xl text-green">+220.49%</span>
+            </li>
+            <li class="w-1/3">
+              <span class="font-noto text-sm">7d%</span><br />
+              <span class="text-xl text-orange">-2.43%</span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">地板價</span><br />
+              <span>
+                <i class="fa-brands fa-ethereum mr-2"></i>
+                <span class="text-xl">2.90</span>
+              </span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">擁有者</span><br />
+              <span class="text-xl">32.1K</span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">作品數量</span><br />
+              <span class="text-xl">1000</span>
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr class="relative lg:grid lg:grid-cols-10 lg:items-center">
+        <td class="lg:w-1/10 px-2 text-center font-paytone text-2xl">9</td>
+        <td class="flex items-center border-l py-4 pl-2 lg:col-span-3">
+          <img
+            src="./assets/images/art28.jpg"
+            alt="work"
+            class="mr-2 h-12 w-12 rounded-full"
+          />
+          <h2 class="text-sm font-bold">髒兮兮的家</h2>
+        </td>
+        <td class="pr-2 text-right">
+          <i class="fa-brands fa-ethereum mr-2"></i>
+          <span class="text-xl">502.31</span>
+          <a
+            href="#"
+            class="fa-solid fa-plus absolute right-0 bottom-0 z-10 text-sm text-white after:absolute after:right-0 after:bottom-0 after:-z-10 after:border-b-32 after:border-l-32 after:border-transparent after:border-b-black lg:!hidden"
+          ></a>
+        </td>
+        <td class="hidden text-xl text-green lg:block">+13.49%</td>
+        <td class="hidden text-xl text-orange lg:block">50.23%</td>
+        <td class="hidden lg:block">
+          <span>
+            <i class="fa-brands fa-ethereum mr-2"></i>
+            <span class="text-xl">2.90</span>
+          </span>
+        </td>
+        <td class="hidden text-xl lg:block">32.1K</td>
+        <td class="hidden text-xl lg:block">1000</td>
+        <td
+          class="hover-500 absolute inset-x-0 top-full z-20 max-h-0 overflow-hidden bg-white lg:hidden"
+        >
+          <ul
+            class="hover-500 flex flex-wrap justify-center gap-y-4 p-4 text-center"
+          >
+            <li class="w-1/3">
+              <span class="font-noto text-sm">24h%</span><br />
+              <span class="text-xl text-green">+220.49%</span>
+            </li>
+            <li class="w-1/3">
+              <span class="font-noto text-sm">7d%</span><br />
+              <span class="text-xl text-orange">-2.43%</span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">地板價</span><br />
+              <span>
+                <i class="fa-brands fa-ethereum mr-2"></i>
+                <span class="text-xl">2.90</span>
+              </span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">擁有者</span><br />
+              <span class="text-xl">32.1K</span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">作品數量</span><br />
+              <span class="text-xl">1000</span>
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr class="relative lg:grid lg:grid-cols-10 lg:items-center">
+        <td class="lg:w-1/10 px-2 text-center font-paytone text-2xl">10</td>
+        <td class="flex items-center border-l py-4 pl-2 lg:col-span-3">
+          <img
+            src="./assets/images/art16.jpg"
+            alt="work"
+            class="mr-2 h-12 w-12 rounded-full"
+          />
+          <h2 class="text-sm font-bold">細胞小將</h2>
+        </td>
+        <td class="pr-2 text-right">
+          <i class="fa-brands fa-ethereum mr-2"></i>
+          <span class="text-xl">420.20</span>
+          <a
+            href="#"
+            class="fa-solid fa-plus absolute right-0 bottom-0 z-10 text-sm text-white after:absolute after:right-0 after:bottom-0 after:-z-10 after:border-b-32 after:border-l-32 after:border-transparent after:border-b-black lg:!hidden"
+          ></a>
+        </td>
+        <td class="hidden text-xl text-green lg:block">+54.49%</td>
+        <td class="hidden text-xl text-orange lg:block">-12.43%</td>
+        <td class="hidden lg:block">
+          <span>
+            <i class="fa-brands fa-ethereum mr-2"></i>
+            <span class="text-xl">2.90</span>
+          </span>
+        </td>
+        <td class="hidden text-xl lg:block">32.1K</td>
+        <td class="hidden text-xl lg:block">1000</td>
+        <td
+          class="hover-500 absolute inset-x-0 top-full z-20 max-h-0 overflow-hidden bg-white lg:hidden"
+        >
+          <ul
+            class="hover-500 flex flex-wrap justify-center gap-y-4 p-4 text-center"
+          >
+            <li class="w-1/3">
+              <span class="font-noto text-sm">24h%</span><br />
+              <span class="text-xl text-green">+220.49%</span>
+            </li>
+            <li class="w-1/3">
+              <span class="font-noto text-sm">7d%</span><br />
+              <span class="text-xl text-orange">-2.43%</span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">地板價</span><br />
+              <span>
+                <i class="fa-brands fa-ethereum mr-2"></i>
+                <span class="text-xl">2.90</span>
+              </span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">擁有者</span><br />
+              <span class="text-xl">32.1K</span>
+            </li>
+            <li class="w-1/3">
+              <span class="text-sm">作品數量</span><br />
+              <span class="text-xl">1000</span>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</main>
+
+
+    <footer
+      class="relative border-t-4 py-6 text-center before:absolute before:inset-x-0 before:-top-2.5 before:border-t"
+    >
+      <h5 class="font-noto">© ART NFT. All Rights Reserved</h5>
+    </footer>
+    <div
+      id="connectWallet"
+      class="hover-500 invisible fixed inset-0 z-40 opacity-0 target:visible target:opacity-100 lg:flex lg:items-center lg:justify-center lg:bg-black/60"
+    >
+      <div class="h-full bg-white lg:h-auto lg:w-[498px]">
+        <div class="border-b px-3 py-4">
+          <h3 class="text-center text-xl">連結你的錢包</h3>
+          <a
+            href="#"
+            class="fa-solid fa-xmark absolute top-5 right-6 text-xl lg:!hidden"
+          ></a>
+        </div>
+        <ul
+          class="container space-y-2 p-6 lg:grid lg:grid-cols-2 lg:gap-2 lg:space-y-0"
+        >
+          <li class="relative">
+            <input
+              id="MetaMask"
+              type="radio"
+              name="wallet"
+              class="peer contents"
+            />
+            <label
+              for="MetaMask"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect01.png"
+                alt="MetaMask"
+                class="h-4 w-4"
+              />
+              <h4>MetaMask</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+          <li class="relative">
+            <input
+              id="Coinbase"
+              type="radio"
+              name="wallet"
+              class="peer contents"
+            />
+            <label
+              for="Coinbase"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect02.png"
+                alt="Coinbase Wallet"
+                class="h-4 w-4"
+              />
+              <h4>Coinbase Wallet</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+          <li class="relative">
+            <input
+              id="WalletConnect"
+              type="radio"
+              name="wallet"
+              class="peer contents"
+            />
+            <label
+              for="WalletConnect"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect03.png"
+                alt="WalletConnect"
+                class="h-4 w-4"
+              />
+              <h4>WalletConnect</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+          <li class="relative">
+            <input
+              id="Phantom"
+              type="radio"
+              name="wallet"
+              class="peer contents"
+            />
+            <label
+              for="Phantom"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect04.png"
+                alt="Phantom"
+                class="h-4 w-4"
+              />
+              <h4>Phantom</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+          <li class="relative">
+            <input id="Glow" type="radio" name="wallet" class="peer contents" />
+            <label
+              for="Glow"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect05.png"
+                alt="Glow"
+                class="h-4 w-4"
+              />
+              <h4>Glow</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+          <li class="relative">
+            <input
+              id="Fortmatic"
+              type="radio"
+              name="wallet"
+              class="peer contents"
+            />
+            <label
+              for="Fortmatic"
+              class="flex items-center gap-x-4 border-2 p-4 peer-checked:border-orange"
+            >
+              <img
+                src="./assets/images/logo/connect06.png"
+                alt="Fortmatic"
+                class="h-4 w-4"
+              />
+              <h4>Fortmatic</h4>
+            </label>
+            <i
+              class="fa-solid fa-check hover-500 absolute right-4 top-1/2 -translate-y-1/2 text-orange opacity-0 peer-checked:opacity-100"
+            ></i>
+          </li>
+        </ul>
+        <a
+          href="#"
+          class="absolute inset-x-0 bottom-0 border bg-orange p-3 text-center text-white lg:static lg:mx-auto lg:mb-6 lg:w-fit lg:px-12"
+          >連結錢包</a
+        >
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/a6505b48a1.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="./assets/js/vendors.js"></script>
+    <script src="./assets/js/all.js"></script>
+  </body>
+</html>
